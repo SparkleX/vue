@@ -6,15 +6,30 @@ import SuperCheck from './control/SuperCheck.vue'
 import SuperRadio from './control/SuperRadio.vue'
 import SuperSelect from './control/SuperSelect.vue'
 import Tab from './control/Tab.vue'
+import TabContent from './control/TabContent.vue'
 import Detail from './floorplan/Detail.vue'
 </script>
 
 
 <template>
   <Detail>
-    <Tab></Tab>
-    <SuperLabel v-model:value="a"></SuperLabel><br>
-    <SuperInput v-model:value="a"></SuperInput><br>
+    <Tab>
+      <template #content>
+        <TabContent id="London">
+          <SuperLabel v-model:value="a"></SuperLabel><br>
+          <SuperInput v-model:value="a"></SuperInput><br>
+        </TabContent>
+        <TabContent id="Paris">
+          <h3>Paris</h3>
+          <p>Paris is the capital of France.</p>
+        </TabContent>
+        <TabContent id="Tokyo">
+          <h3>Tokyo</h3>
+          <p>Tokyo is the capital of Japan.</p>
+        </TabContent>
+      </template>
+    </Tab>
+
     <SuperInput v-model:value="YesNo"></SuperInput><br>
     <SuperLabel ></SuperLabel><br>
     <SuperCheck v-model:value ="YesNo" valYes="T" valNo="F" label="Hello"></SuperCheck><br>
@@ -34,7 +49,7 @@ import Detail from './floorplan/Detail.vue'
 export default {
   data: function () {
     return { 
-      a: "234",
+      a: "88888888",
       b: "aaa",
       text:"Button",
       YesNo: true,

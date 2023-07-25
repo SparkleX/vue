@@ -4,20 +4,8 @@
         <button class="tablinks" @click="openCity(event, 'Paris')">Paris</button>
         <button class="tablinks" @click="openCity(event, 'Tokyo')">Tokyo</button>
     </div>
-    <div id="London" class="tabcontent">
-        <h3>London</h3>
-        <p>London is the capital city of England.</p>
-    </div>
+    <slot name="content"></slot>
 
-    <div id="Paris" class="tabcontent">
-        <h3>Paris</h3>
-        <p>Paris is the capital of France.</p>
-    </div>
-
-    <div id="Tokyo" class="tabcontent">
-        <h3>Tokyo</h3>
-        <p>Tokyo is the capital of Japan.</p>
-    </div>
 </template>
  
 <style scoped>
@@ -84,7 +72,7 @@
 </script>
 <script>
 export default {
-    props: ['value', 'valYes', 'valNo', 'label'],
+    props: ['value'],
     methods: {
         openCity(evt, cityName) {
             var i, tabcontent, tablinks;
@@ -97,7 +85,7 @@ export default {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
             document.getElementById(cityName).style.display = "block";
-            evt.currentTarget.className += " active";
+            //evt.currentTarget.className += " active";
         }
     }
 }
