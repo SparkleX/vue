@@ -8,7 +8,12 @@
 .super_select {
   height: 32px;
   width: 100%;
+  line-height: 3em;
 }
+option{
+     padding:20px 0;
+   }
+
 </style>
 <script setup>
 
