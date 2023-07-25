@@ -5,12 +5,14 @@ import SuperButton from './control/SuperButton.vue'
 import SuperCheck from './control/SuperCheck.vue'
 import SuperRadio from './control/SuperRadio.vue'
 import SuperSelect from './control/SuperSelect.vue'
+import Tab from './control/Tab.vue'
 import Detail from './floorplan/Detail.vue'
 </script>
 
 
 <template>
   <Detail>
+    <Tab></Tab>
     <SuperLabel v-model:value="a"></SuperLabel><br>
     <SuperInput v-model:value="a"></SuperInput><br>
     <SuperInput v-model:value="YesNo"></SuperInput><br>
