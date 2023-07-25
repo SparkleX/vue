@@ -23,7 +23,7 @@ import SuperSelect from './control/SuperSelect.vue'
   <SuperRadio v-model:value="RadioValue" label="O2" valActive="B"></SuperRadio><br>
   <SuperRadio v-model:value="RadioValue" label="O3" valActive="C"></SuperRadio><br>
   <SuperInput v-model:value="SelectValue"></SuperInput><br>
-  <SuperSelect v-model:value="SelectValue" ></SuperSelect><br>
+  <SuperSelect v-model:value="SelectValue" :codes="SelectValues"></SuperSelect><br>
 
 </template>
 
@@ -36,7 +36,13 @@ export default {
       text:"Button",
       YesNo: true,
       RadioValue: "B",
-      SelectValue: "1"
+      SelectValue: "1",
+      SelectValues : [
+        {value:"1", desc:"A"},
+        {value:"2", desc:"B"},
+        {value:"3", desc:"C"},
+        {value:"4", desc:"D"},
+      ]
     }
   },
   methods: {
