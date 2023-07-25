@@ -4,6 +4,7 @@ import SuperLabel from './control/SuperLabel.vue'
 import SuperButton from './control/SuperButton.vue'
 import SuperCheck from './control/SuperCheck.vue'
 import SuperRadio from './control/SuperRadio.vue'
+import SuperSelect from './control/SuperSelect.vue'
 </script>
 
 
@@ -21,6 +22,9 @@ import SuperRadio from './control/SuperRadio.vue'
   <SuperRadio v-model:value="RadioValue" label="O1" valActive="A"></SuperRadio><br>
   <SuperRadio v-model:value="RadioValue" label="O2" valActive="B"></SuperRadio><br>
   <SuperRadio v-model:value="RadioValue" label="O3" valActive="C"></SuperRadio><br>
+  <SuperInput v-model:value="SelectValue"></SuperInput><br>
+  <SuperSelect v-model:value="SelectValue" ></SuperSelect><br>
+
 </template>
 
 <script>
@@ -31,7 +35,8 @@ export default {
       b: "aaa",
       text:"Button",
       YesNo: true,
-      RadioValue: "B"
+      RadioValue: "B",
+      SelectValue: "1"
     }
   },
   methods: {
