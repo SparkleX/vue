@@ -1,6 +1,6 @@
 <template>	
 	<label>
-		<input type="checkbox" :checked="checked_value" @input="onChange" />
+		<input type="radio" name="contact" :checked="checked_value" @input="onChange">
 		{{label}}
 	</label>
 </template>
@@ -10,20 +10,15 @@
 import { defineProps, computed } from 'vue'
 const props = defineProps({
 	value: [Boolean, String],
-	label: { type:String, default:"CheckBox" },
-	valYes: {
-		type: String,
-		default: 'Y'
-	},
-	valNo: {
-		type: String,
-		default: 'N'
+	label: { type:String, default:"RadioButton" },
+	valActive: {
+		type: String
 	}
 });
 
 const checked_value = computed({
 	get() {
-		return props.value == props.valYes
+		return props.value == props.valActive
 	}
 })
 </script>
@@ -32,7 +27,9 @@ export default {
 	props: ['value', 'valYes', 'valNo','label'] ,
 	methods: {
 		onChange(event) {
-			this.$emit("update:value", event.target.checked ? this.valYes : this.valNo);
+			if (event.target.checked) {
+				this.$emit("update:value", this.valActive);
+			}
 		}
 	}
 }
