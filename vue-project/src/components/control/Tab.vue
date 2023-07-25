@@ -1,8 +1,11 @@
 <template>
     <div class="tab">
-        <button class="tablinks" @click="openCity(event, 'London')">London</button>
+      <!--  <button class="tablinks" @click="openCity(event, 'London')">London</button>
         <button class="tablinks" @click="openCity(event, 'Paris')">Paris</button>
-        <button class="tablinks" @click="openCity(event, 'Tokyo')">Tokyo</button>
+        <button class="tablinks" @click="openCity(event, 'Tokyo')">Tokyo</button>-->
+        <button v-for="item in this.$slots.content()" class="tablinks" @click="openTab($event, item.props.id)">
+            {{item.props.title}}
+        </button>
     </div>
     <slot name="content"></slot>
 
@@ -68,13 +71,18 @@
 }
 </style>
 <script setup>
-
+import { ref, h} from 'vue'
 </script>
 <script>
 export default {
     props: ['value'],
+   /* render(createElement) {
+        //this.$slots.content()[0].props.id
+
+        return 'Hello world';
+  },*/
     methods: {
-        openCity(evt, cityName) {
+        openTab(evt, cityName) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
             for (i = 0; i < tabcontent.length; i++) {
@@ -90,4 +98,5 @@ export default {
     }
 }
 //https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs_fade
+//https://snipcart.com/blog/vue-render-functions#Definition
 </script>

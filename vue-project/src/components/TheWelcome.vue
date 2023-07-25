@@ -15,15 +15,15 @@ import Detail from './floorplan/Detail.vue'
   <Detail>
     <Tab>
       <template #content>
-        <TabContent id="London">
+        <TabContent id="London" title="A1">
           <SuperLabel v-model:value="a"></SuperLabel><br>
           <SuperInput v-model:value="a"></SuperInput><br>
         </TabContent>
-        <TabContent id="Paris">
+        <TabContent id="Paris" title="A2">
           <h3>Paris</h3>
           <p>Paris is the capital of France.</p>
         </TabContent>
-        <TabContent id="Tokyo">
+        <TabContent id="Tokyo" title="A3">
           <h3>Tokyo</h3>
           <p>Tokyo is the capital of Japan.</p>
         </TabContent>
