@@ -1,0 +1,14 @@
+{
+	"columns": {
+		"CardCode": {
+			"name":"Business Partner Code"
+		},
+		"CardName": {
+			"name":"Business Partner Name"
+		}
+	},
+	"order": [
+		"CardCode",
+		"CardName"
+	]
+}
