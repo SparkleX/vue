@@ -1,23 +1,49 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import TheWelcome from '../components/TheWelcome.vue'
+import ORDRList from '../views/ORDR/List.vue'
+import ORDRDetail from '../views/ORDR/Detail.vue'
+import CARDList from '../views/CARD/List.vue'
+import CARDDetail from '../views/CARD/Detail.vue'
+import ITEMList from '../views/ITEM/List.vue'
+import ITEMDetail from '../views/ITEM/Detail.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: TheWelcome
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../components/HelloWorld.vue')
-    }
-  ]
+	history: createWebHistory(import.meta.env.BASE_URL),
+	routes: [
+		{
+			path: '/',
+			name: 'home',
+			component: CARDList
+		},
+		{
+			path: '/ORDR/List',
+			name: 'ORDRList',
+			component: ORDRList
+		},
+		{
+			path: '/ORDR/Detail',
+			name: 'ORDRDetail',
+			component: ORDRDetail
+		},
+		{
+			path: '/CARD/List',
+			name: 'CARDList',
+			component: CARDList
+		},
+		{
+			path: '/CARD/Detail',
+			name: 'CARDDetail',
+			component: CARDDetail
+		},
+		{
+			path: '/ITEM/List',
+			name: 'ITEMList',
+			component: ITEMList
+		}, {
+			path: '/ITEM/Detail',
+			name: 'ITEMDetail',
+			component: ITEMDetail
+		}
+	]
 })
 
 export default router

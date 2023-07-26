@@ -1,13 +1,13 @@
 <script setup>
-import SuperInput from './control/SuperInput.vue'
-import SuperLabel from './control/SuperLabel.vue'
-import SuperButton from './control/SuperButton.vue'
-import SuperCheck from './control/SuperCheck.vue'
-import SuperRadio from './control/SuperRadio.vue'
-import SuperSelect from './control/SuperSelect.vue'
-import Tab from './control/Tab.vue'
-import TabContent from './control/TabContent.vue'
-import Detail from './floorplan/Detail.vue'
+import SuperInput from '../../components/control/SuperInput.vue'
+import SuperLabel from '../../components/control/SuperLabel.vue'
+import SuperButton from '../../components/control/SuperButton.vue'
+import SuperCheck from '../../components/control/SuperCheck.vue'
+import SuperRadio from '../../components/control/SuperRadio.vue'
+import SuperSelect from '../../components/control/SuperSelect.vue'
+import Tab from '../../components/control/Tab.vue'
+import TabContent from '../../components/control/TabContent.vue'
+import Detail from '../../components/floorplan/Detail.vue'
 </script>
 
 

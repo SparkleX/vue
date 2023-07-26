@@ -1,27 +1,31 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
 import { RouterLink, RouterView } from 'vue-router'
-import TheWelcome from './components/TheWelcome.vue'
 </script>
 
 <template>
     <div class="grid-container">
-      <div class="item1">Business One</div>
-      <div class="item2">
-        Business Partner<p></p>
-        Item Master Data<p></p>
-        Sales Order<p></p>
+      <div class="head">Business One</div>
+      <div class="menu">
+        <p></p>
+        <RouterLink to="/CARD/List">Business Partner</RouterLink>&nbsp;
+        <RouterLink to="/CARD/Detail">[+]</RouterLink>
+        <p></p>
+        <RouterLink to="/ITEM/List">Item Master Data</RouterLink>&nbsp;
+        <RouterLink to="/ITEM/Detail">[+]</RouterLink>
+        <p></p>
+        <RouterLink to="/ORDR/List">Sales Order</RouterLink>&nbsp;
+        <RouterLink to="/ORDR/Detail">[+]</RouterLink>
+        <p></p>
       </div>
-      <div class="item3">
+      <div class="body">
         <RouterView />
-        <!--<RouterLink to="/about">About</RouterLink>-->
       </div>
     </div>
 </template>
 
   
 <style scoped>
-.item1 { 
+.head { 
   grid-area: header; 
   background-color: black;
   height: 3rem;
@@ -29,14 +33,31 @@ import TheWelcome from './components/TheWelcome.vue'
   font-size: 2rem;  
 
 }
-.item2 { 
+.menu { 
   grid-area: menu; 
-  background-color: #0000A0;
+  background-color: #EEEEEE;
   height: calc(100vh - 3rem);
   color: aliceblue;
   font-size: 1rem;    
 }
-.item3 { 
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+
+.body { 
   background-color: white;
   grid-area: main;
 }

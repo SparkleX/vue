@@ -3,7 +3,5 @@
 </script>
 
 <template>
-About
+Sales Order
 </template>
-
-
