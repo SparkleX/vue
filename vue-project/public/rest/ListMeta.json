@@ -5,10 +5,30 @@
 		},
 		"CardName": {
 			"name":"Business Partner Name"
+		},
+		"F1": {
+			"name":"F1"
+		},
+		"F2": {
+			"name":"F2"
+		},
+		"F3": {
+			"name":"F3"
+		},
+		"F4": {
+			"name":"F4"
+		},
+		"F5": {
+			"name":"F5"
 		}
 	},
 	"order": [
 		"CardCode",
-		"CardName"
+		"CardName",
+		"F1",
+		"F2",
+		"F3",
+		"F4",
+		"F5"
 	]
 }
