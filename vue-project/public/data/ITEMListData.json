@@ -1,0 +1,15 @@
+[
+	{
+		"ItemCode": "I001",
+		"ItemName": "iPhone"
+	},
+	{
+		"ItemCode": "I002",
+		"ItemName": "iMac"
+	}
+	,
+	{
+		"ItemCode": "I003",
+		"ItemName": "MacBook"
+	}
+]
