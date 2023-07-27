@@ -1,0 +1,15 @@
+[
+	{
+		"CardCode": "C001",
+		"CardName": "Microsoft"
+	},
+	{
+		"CardCode": "C002",
+		"CardName": "IBM"
+	}
+	,
+	{
+		"CardCode": "C003",
+		"CardName": "SAP"
+	}
+]

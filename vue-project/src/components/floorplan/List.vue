@@ -12,33 +12,17 @@
 		</div>
 		<table>
 			<tr>
-				<td>
-					Card Code
-				</td>
-				<td>
-					Card Name
-				</td>
-				<td></td>
+				<th v-for="item in this.metadata.order">
+					{{ this.metadata.columns[item].name }}
+				</th>
+				<th>
+				</th>
 			</tr>
-			<tr>
-				<td>
-					C001
-				</td>
-				<td>
-					Microsoft
+			<tr v-for="d in this.data">
+				<td v-for="item in this.metadata.order">
+					{{ d[item] }}
 				</td>
 				<td> <button>New</button></td>
-
-			</tr>
-			<tr>
-				<td>
-					C002
-				</td>
-				<td>
-					IBM
-				</td>
-				<td> <button>New</button> </td>
-
 			</tr>
 		</table>
 	</div>
@@ -58,13 +42,17 @@ table {
 	width: 100%;
 	border-collapse: collapse;
 	border: 2px solid;
-} 
-th, td {
-  border: 1px solid;
 }
+
+th,
+td {
+	border: 1px solid;
+}
+
 .table_bar {
 	padding-bottom: 1rem;
 }
+
 .item {
 	grid-area: item;
 	background-color: #EEEEEE;
@@ -73,7 +61,7 @@ th, td {
 .grid-container {
 	display: grid;
 	grid-template-columns: auto auto auto auto auto;
-	background-color:beige;
+	background-color: beige;
 	padding: 1rem;
 }
 </style>
@@ -91,11 +79,13 @@ export default {
 		return {
 			metadata: null,
 			loading: true,
+			data: []
 		};
 	},
 	async created() {
 		try {
 			this.metadata = await oMetadataApi.listViewMetadata();
+			this.data = await oMetadataApi.listViewData();
 		} finally {
 			this.loading = false;
 		}
