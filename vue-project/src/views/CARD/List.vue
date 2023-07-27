@@ -5,7 +5,7 @@
 </List>
 </template>
 <script setup>
-import List from '../../components/floorplan/List.vue'
+import List from '../../framework/floorplan/List.vue'
 </script>
 <script>
 export default {

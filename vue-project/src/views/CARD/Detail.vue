@@ -1,13 +1,13 @@
 <script setup>
-import SuperInput from '../../components/control/SuperInput.vue'
-import SuperLabel from '../../components/control/SuperLabel.vue'
-import SuperButton from '../../components/control/SuperButton.vue'
-import SuperCheck from '../../components/control/SuperCheck.vue'
-import SuperRadio from '../../components/control/SuperRadio.vue'
-import SuperSelect from '../../components/control/SuperSelect.vue'
-import Tab from '../../components/control/Tab.vue'
-import TabContent from '../../components/control/TabContent.vue'
-import Detail from '../../components/floorplan/Detail.vue'
+import Input from '../../framework/control/Input.vue'
+import Label from '../../framework/control/Label.vue'
+import Button from '../../framework/control/Button.vue'
+import Check from '../../framework/control/Check.vue'
+import Radio from '../../framework/control/Radio.vue'
+import Select from '../../framework/control/Select.vue'
+import Tab from '../../framework/control/Tab.vue'
+import TabContent from '../../framework/control/TabContent.vue'
+import Detail from '../../framework/floorplan/Detail.vue'
 </script>
 
 
@@ -16,8 +16,8 @@ import Detail from '../../components/floorplan/Detail.vue'
     <Tab>
       <template #content>
         <TabContent id="London" title="General">
-          <SuperLabel v-model:value="a"></SuperLabel><br>
-          <SuperInput v-model:value="a"></SuperInput><br>
+          <Label v-model:value="a"></Label><br>
+          <Input v-model:value="a"></Input><br>
         </TabContent>
         <TabContent id="Paris" title="Contacts">
           <h3>Paris</h3>
@@ -30,19 +30,19 @@ import Detail from '../../components/floorplan/Detail.vue'
       </template>
     </Tab>
 
-    <SuperInput v-model:value="YesNo"></SuperInput><br>
-    <SuperLabel ></SuperLabel><br>
-    <SuperCheck v-model:value ="YesNo" valYes="T" valNo="F" label="Hello"></SuperCheck><br>
-    <SuperCheck id="aaa" v-model:value ="YesNo" valYes="T" valNo="F" label="World"></SuperCheck><br>
+    <Input v-model:value="YesNo"></Input><br>
+    <Label ></Label><br>
+    <Check v-model:value ="YesNo" valYes="T" valNo="F" label="Hello"></Check><br>
+    <Check id="aaa" v-model:value ="YesNo" valYes="T" valNo="F" label="World"></Check><br>
     <!--<input type="checkbox" :checked="YesNo"/>-->
-    <SuperButton :value="text" @click="onClickButton"/><br>
+    <Button :value="text" @click="onClickButton"/><br>
     <input type="radio" name="contact"><input type="radio" name="contact" checked><input type="radio" name="contact"><br>
-    <SuperInput v-model:value="RadioValue"></SuperInput><br>
-    <SuperRadio v-model:value="RadioValue" label="O1" valActive="A"></SuperRadio><br>
-    <SuperRadio v-model:value="RadioValue" label="O2" valActive="B"></SuperRadio><br>
-    <SuperRadio v-model:value="RadioValue" label="O3" valActive="C"></SuperRadio><br>
-    <SuperInput v-model:value="SelectValue"></SuperInput><br>
-    <SuperSelect v-model:value="SelectValue" :codes="SelectValues"></SuperSelect><br>
+    <Input v-model:value="RadioValue"></Input><br>
+    <Radio v-model:value="RadioValue" label="O1" valActive="A"></Radio><br>
+    <Radio v-model:value="RadioValue" label="O2" valActive="B"></Radio><br>
+    <Radio v-model:value="RadioValue" label="O3" valActive="C"></Radio><br>
+    <Input v-model:value="SelectValue"></Input><br>
+    <Select v-model:value="SelectValue" :codes="SelectValues"></Select><br>
   </Detail>
 </template>
 <script>
