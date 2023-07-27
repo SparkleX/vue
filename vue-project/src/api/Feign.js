@@ -1,5 +1,6 @@
 
 import jQuery from "jquery";
+import format from 'string-format';
 
 class Feign {
 	targetAll = function (theClass) {
@@ -19,7 +20,7 @@ class Feign {
 		param.method = urlArray[0].toLowerCase();
 
 		//param.url = helper.formatUrl(urlArray[1], urlParam);
-		param.url = urlArray[1];
+		param.url = format(urlArray[1],urlParam);
 
 
 		param.contentType = "application/json";

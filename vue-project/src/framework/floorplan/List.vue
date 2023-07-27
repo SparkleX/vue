@@ -1,17 +1,14 @@
 <template>
-	<div><Button value="123"/></div>
-	<div><Button icon="back-to-top"/></div>
-
 	<div class="header">{{ title }}</div>
 	<div v-if="this.metadata" class="grid-container">
 		<div v-for="item in this.metadata.order">
 			{{ this.metadata.columns[item].name }}:<br> <input />
 		</div>
-		<div>Search:<br><button>Go</button></div>
+		<div>Search:<br><Button value="Go"></button></div>
 	</div>
 	<div class="list" v-if="this.metadata">
 		<div class="table_bar">
-			<button>New</button>
+			<Button value="New"></Button>
 		</div>
 		<table>
 			<tr>
@@ -25,7 +22,7 @@
 				<td v-for="item in this.metadata.order">
 					{{ d[item] }}
 				</td>
-				<td> <button>New</button></td>
+				<td> <Button icon="navigation-right-arrow"></button></td>
 			</tr>
 		</table>
 	</div>
@@ -87,8 +84,8 @@ export default {
 	},
 	async created() {
 		try {
-			this.metadata = await oMetadataApi.listViewMetadata();
-			this.data = await oMetadataApi.listViewData();
+			this.metadata = await oMetadataApi.listViewMetadata(null, {table:this.table});
+			this.data = await oMetadataApi.listViewData(null, {table:this.table});
 		} finally {
 			this.loading = false;
 		}
