@@ -5,14 +5,14 @@
 				<GridContainer>
 					<GridLayout>
 						<FormContainer>
+							<FormElement label="BP Type">
+								<Select v-model:value="data.CardType" :codes="codes.BPType"></Select><br>
+							</FormElement>
 							<FormElement label="BP Code">
-								<Input v-model:value="a"></Input>
+								<Input v-model:value="data.CardCode"></Input>
 							</FormElement>
 							<FormElement label="BP Name">
-								<Input v-model:value="a"></Input>
-							</FormElement>
-							<FormElement label="BP Type">
-								<Input v-model:value="a"></Input>
+								<Input v-model:value="data.CardName"></Input>
 							</FormElement>
 						</FormContainer>
 					</GridLayout>
@@ -23,21 +23,38 @@
 							</FormElement>
 						</FormContainer>
 					</GridLayout>
+					<GridLayout>
+						<FormContainer>
+							<FormElement label="Balance">
+								<Check v-model:value="YesNo" valYes="T" valNo="F" label="Hello"></Check>
+							</FormElement>
+							<FormElement label="">
+								<Check id="aaa" v-model:value="YesNo" valYes="T" valNo="F" label="World"></Check>
+							</FormElement>
+						</FormContainer>
+					</GridLayout>
+					<GridLayout>
+						<FormContainer>
+							<FormElement label="Balance">
+								<Button :value="text" @click="onClickButton" />
+							</FormElement>
+							<FormElement label="">
+								<Input v-model:value="RadioValue"></Input>
+							</FormElement>
+							<FormElement label="">
+								<Radio v-model:value="RadioValue" label="O1" valActive="A"></Radio>
+								<Radio v-model:value="RadioValue" label="O2" valActive="B"></Radio>
+								<Radio v-model:value="RadioValue" label="O3" valActive="C"></Radio>
+							</FormElement>
+							<FormElement label="AAA">
+								<Input v-model:value="SelectValue"></Input>
+							</FormElement>
+							<FormElement label="BBB">
+								<Select v-model:value="SelectValue" :codes="SelectValues"></Select><br>
+							</FormElement>
+						</FormContainer>
+					</GridLayout>
 				</GridContainer>
-
-				<Label></Label><br>
-				<Check v-model:value="YesNo" valYes="T" valNo="F" label="Hello"></Check><br>
-				<Check id="aaa" v-model:value="YesNo" valYes="T" valNo="F" label="World"></Check><br>
-				<!--<input type="checkbox" :checked="YesNo"/>-->
-				<Button :value="text" @click="onClickButton" /><br>
-				<input type="radio" name="contact"><input type="radio" name="contact" checked><input type="radio"
-					name="contact"><br>
-				<Input v-model:value="RadioValue"></Input><br>
-				<Radio v-model:value="RadioValue" label="O1" valActive="A"></Radio><br>
-				<Radio v-model:value="RadioValue" label="O2" valActive="B"></Radio><br>
-				<Radio v-model:value="RadioValue" label="O3" valActive="C"></Radio><br>
-				<Input v-model:value="SelectValue"></Input><br>
-				<Select v-model:value="SelectValue" :codes="SelectValues"></Select><br>
 			</TabContent>
 			<TabContent id="Contacts" :value="ui.tab" activeValue="2" title="Contacts">
 				<h3>Paris</h3>
@@ -72,18 +89,25 @@ export default {
 			ui: {
 				tab: 1
 			},
+			codes: {
+				BPType: [
+					{ value: "C", desc: "Customer" },
+					{ value: "S", desc: "Supplier" },
+					{ value: "L", desc: "Lead" }
+				]
+			},
+			data: {
+				CardType: "C",
+				CardCode: "C001",
+				CardName: "Microsoft"
+			},
 			a: "88888888",
 			b: "aaa",
 			text: "Button",
 			YesNo: true,
 			RadioValue: "B",
 			SelectValue: "1",
-			SelectValues: [
-				{ value: "1", desc: "A" },
-				{ value: "2", desc: "B" },
-				{ value: "3", desc: "C" },
-				{ value: "4", desc: "D" },
-			]
+			
 		}
 	},
 	methods: {

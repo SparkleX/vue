@@ -6,29 +6,29 @@
 		"CardName": {
 			"name":"Business Partner Name"
 		},
-		"F1": {
-			"name":"F1"
+		"CardType": {
+			"name":"BP Type"
 		},
-		"F2": {
-			"name":"F2"
+		"Balance": {
+			"name":"Balance"
 		},
-		"F3": {
-			"name":"F3"
+		"Contact": {
+			"name":"Contact Person"
 		},
-		"F4": {
-			"name":"F4"
+		"Address": {
+			"name":"Address"
 		},
-		"F5": {
-			"name":"F5"
+		"CredLimit": {
+			"name":"Credit Limit"
 		}
 	},
 	"order": [
 		"CardCode",
 		"CardName",
-		"F1",
-		"F2",
-		"F3",
-		"F4",
-		"F5"
+		"CardType",
+		"Balance",
+		"Contact",
+		"Address",
+		"CredLimit"
 	]
 }
