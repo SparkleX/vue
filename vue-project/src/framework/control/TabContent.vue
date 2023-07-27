@@ -1,12 +1,12 @@
 <template>
-    <div class="tabcontent">
+    <div v-if="value==activeValue" class="tabcontent">
         <slot></slot>
     </div>
 </template>
  
 <style scoped>
 .tabcontent {
-    display: none;
+/*   display: none;*/
     padding: 6px 12px;
     -webkit-animation: fadeEffect 1s;
     animation: fadeEffect 1s;
@@ -17,6 +17,10 @@
 </script>
 <script>
 export default {
-    props: ['title'],
+    props: {
+		title: { type: String},
+		value: {type: String},
+		activeValue:{type: String},
+	}
 }
 </script>
