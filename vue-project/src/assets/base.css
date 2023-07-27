@@ -9,3 +9,9 @@ html {
 #app {
   height: 100%;
 }
+
+@font-face {
+	font-family: 'IconFont';
+	src: url('/font/SAP-icons.woff2') format('woff2'),
+		 url('/font/SAP-icons.woff2') format('woff');
+  }

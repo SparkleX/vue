@@ -1,4 +1,7 @@
 <template>
+	<div><Button value="123"/></div>
+	<div><Button icon="back-to-top"/></div>
+
 	<div class="header">{{ title }}</div>
 	<div v-if="this.metadata" class="grid-container">
 		<div v-for="item in this.metadata.order">
@@ -6,7 +9,7 @@
 		</div>
 		<div>Search:<br><button>Go</button></div>
 	</div>
-	<div class="list">
+	<div class="list" v-if="this.metadata">
 		<div class="table_bar">
 			<button>New</button>
 		</div>
@@ -69,7 +72,7 @@ td {
 
 
 import oMetadataApi from '../../api/Metadata'
-
+import Button from '../../framework/control/Button.vue'
 </script>
 
 <script>

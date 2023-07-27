@@ -1,5 +1,5 @@
 const Icon = {
-    "back-to-top":"xe210"
+    "back-to-top":"\ue210"
 }
 
 export default Icon;

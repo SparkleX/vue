@@ -1,22 +1,38 @@
 <template>
-    <button @click="onClick">{{value}}</button>
+	<button v-if="isIcon==false" class="button" @click="onClick">{{ value }}</button>
+	<button v-if="isIcon==true" class="button_icon" @click="onClick">{{iconCode}}</button>
 </template>
  
 <style scoped>
-.super_label {
- height: 32px;
+.button {
+	height: 2rem;
+}
+
+.button_icon {
+	height: 2rem;
+	width: 2rem;
+	font-family: 'IconFont', Fallback, sans-serif;
 }
 </style>
 <script setup>
-//defineEmits(['aaa'])
+import Icon from "../icons/Icon"
 </script>
 <script>
 export default {
- props: ['value'] ,
- methods: {
-    onClick(event) {
-      return false;
-    }
- }
+	props: ['value', 'icon'],
+	methods: {
+		onClick(event) {
+			return false;
+		}
+	},
+	computed: {
+		isIcon() {
+			return this.value==null;
+		},
+		iconCode() {
+			const code = Icon[this.icon];
+			return code;
+		}
+	}
 }
 </script>
