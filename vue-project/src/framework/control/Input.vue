@@ -4,7 +4,8 @@
   
 <style scoped>
 .super_input {
-  height: 32px;
+  height: 2rem;
+  width: 100%;
 }
 </style>
 

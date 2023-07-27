@@ -1,23 +1,30 @@
-<script setup>
-import Input from '../../framework/control/Input.vue'
-import Label from '../../framework/control/Label.vue'
-import Button from '../../framework/control/Button.vue'
-import Check from '../../framework/control/Check.vue'
-import Radio from '../../framework/control/Radio.vue'
-import Select from '../../framework/control/Select.vue'
-import Tab from '../../framework/control/Tab.vue'
-import TabContent from '../../framework/control/TabContent.vue'
-import Detail from '../../framework/floorplan/Detail.vue'
-</script>
-
-
 <template>
 	<Detail title="Business Partner">
 		<Tab v-model:value="ui.tab">
 			<TabContent id="General" :value="ui.tab" activeValue="1" title="General">
-				<Label v-model:value="a"></Label><br>
-				<Input v-model:value="a"></Input><br>
-				<Input v-model:value="YesNo"></Input><br>
+				<GridContainer>
+					<GridLayout>
+						<FormContainer>
+							<FormElement label="BP Code">
+								<Input v-model:value="a"></Input>
+							</FormElement>
+							<FormElement label="BP Name">
+								<Input v-model:value="a"></Input>
+							</FormElement>
+							<FormElement label="BP Type">
+								<Input v-model:value="a"></Input>
+							</FormElement>
+						</FormContainer>
+					</GridLayout>
+					<GridLayout>
+						<FormContainer>
+							<FormElement label="Balance">
+								<Input v-model:value="YesNo"></Input>
+							</FormElement>
+						</FormContainer>
+					</GridLayout>
+				</GridContainer>
+
 				<Label></Label><br>
 				<Check v-model:value="YesNo" valYes="T" valNo="F" label="Hello"></Check><br>
 				<Check id="aaa" v-model:value="YesNo" valYes="T" valNo="F" label="World"></Check><br>
@@ -43,6 +50,21 @@ import Detail from '../../framework/floorplan/Detail.vue'
 		</Tab>
 	</Detail>
 </template>
+<script setup>
+import Input from '../../framework/control/Input.vue'
+import Label from '../../framework/control/Label.vue'
+import Button from '../../framework/control/Button.vue'
+import Check from '../../framework/control/Check.vue'
+import Radio from '../../framework/control/Radio.vue'
+import Select from '../../framework/control/Select.vue'
+import Tab from '../../framework/control/Tab.vue'
+import TabContent from '../../framework/control/TabContent.vue'
+import Detail from '../../framework/floorplan/Detail.vue'
+import GridContainer from '../../framework/layout/GridContainer.vue'
+import GridLayout from '../../framework/layout/GridLayout.vue'
+import FormContainer from '../../framework/layout/FormContainer.vue'
+import FormElement from '../../framework/layout/FormElement.vue'
+</script>
 <script>
 export default {
 	data: function () {

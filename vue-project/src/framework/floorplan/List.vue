@@ -84,8 +84,8 @@ export default {
 	},
 	async created() {
 		try {
-			this.metadata = await oMetadataApi.listViewMetadata(null, {table:this.table});
-			this.data = await oMetadataApi.listViewData(null, {table:this.table});
+			this.metadata = await oMetadataApi.listViewMetadata(null, { table: this.table });
+			this.data = await oMetadataApi.listViewData(null, { table: this.table });
 		} finally {
 			this.loading = false;
 		}

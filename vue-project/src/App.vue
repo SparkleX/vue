@@ -28,6 +28,7 @@ import { RouterLink, RouterView } from 'vue-router'
 .head {
 	grid-area: header;
 	background-color: black;
+	width: 100%;
 	height: 3rem;
 	color: aliceblue;
 	font-size: 2rem;
@@ -61,14 +62,13 @@ a:active {
 .body {
 	background-color: white;
 	grid-area: main;
-	width: 100%;
 }
 
 .grid-container {
 	display: grid;
 	height: 100%;
 	grid-template-areas:
-		'header header header'
-		'menu main main';
-	grid-template-columns: 15rem calc(100vh - 3rem);;
+		'header header'
+		'menu main';
+	grid-template-columns: 15rem calc(100vw - 15rem);;
 }</style>

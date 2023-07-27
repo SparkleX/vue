@@ -1,10 +1,11 @@
 <template>
-     <label class="super_label">{{value}}</label>
+     <label class="super_label">{{value}}:</label>
 </template>
   
 <style scoped>
 .super_label {
-  height: 32px;
+  height: 2rem;
+  white-space:nowrap;
 }
 </style>
 <script>
