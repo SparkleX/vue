@@ -1,14 +1,14 @@
 <template>
-	<Detail title="Business Partner" :showFooter="ui.editable">
+	<Detail title="Business Partner" :showFooter="!ui.viewMode">
 		<template #toolsbar>
-			<Button value="New" :visible="!ui.editable" @onClick="onClickEdit" type="emphasis"></Button>
-			<Button value="Edit" :visible="!ui.editable" @onClick="onClickEdit" type="emphasis"></Button>
-			<Button value="Duplicate" :visible="!ui.editable" @onClick="onClickEdit"></Button>
-			<Button value="Delete" :visible="!ui.editable" @onClick="onClickDelete"></Button>
+			<Button value="New" :visible="ui.viewMode" @onClick="onClickNew" type="emphasis"></Button>
+			<Button value="Edit" :visible="ui.viewMode" @onClick="onClickEdit" type="emphasis"></Button>
+			<Button value="Duplicate" :visible="ui.viewMode" @onClick="onClickEdit"></Button>
+			<Button value="Delete" :visible="ui.viewMode" @onClick="onClickDelete"></Button>
 
 		</template>
 		<template #footer>
-			<Button value="Save" @onClick="onClickCancel" type="emphasis"></Button>
+			<Button value="Save" @onClick="onClickSave" type="emphasis"></Button>
 			<Button value="Cancel" @onClick="onClickCancel"></Button>
 		</template>
 		<Tab v-model:value="ui.tab">
@@ -17,10 +17,10 @@
 					<GridLayout>
 						<FormContainer>
 							<FormElement label="BP Type">
-								<Select v-model:value="data.CardType" :codes="codes.BPType" :editable="ui.editable"></Select><br>
+								<Select v-model:value="data.CardType" :codes="codes.BPType" :editable="!ui.viewMode"></Select><br>
 							</FormElement>
 							<FormElement label="BP Code">
-								<Input v-model:value="data.CardCode" :editable="ui.editable"></Input>
+								<Input v-model:value="data.CardCode" :editable="!ui.viewMode"></Input>
 							</FormElement>
 							<FormElement label="BP Name">
 								<Input v-model:value="data.CardName"></Input>
@@ -37,10 +37,10 @@
 					<GridLayout>
 						<FormContainer>
 							<FormElement label="Balance">
-								<Check v-model:value="YesNo" valYes="T" valNo="F" label="Hello" :editable="ui.editable"></Check>
+								<Check v-model:value="YesNo" valYes="T" valNo="F" label="Hello" :editable="!ui.viewMode"></Check>
 							</FormElement>
 							<FormElement label="">
-								<Check id="aaa" v-model:value="YesNo" valYes="T" valNo="F" label="World" :editable="ui.editable"></Check>
+								<Check id="aaa" v-model:value="YesNo" valYes="T" valNo="F" label="World" :editable="!ui.viewMode"></Check>
 							</FormElement>
 						</FormContainer>
 					</GridLayout>
@@ -53,15 +53,15 @@
 								<Input v-model:value="RadioValue"></Input>
 							</FormElement>
 							<FormElement label="">
-								<Radio v-model:value="RadioValue" label="O1" valActive="A" :editable="ui.editable"></Radio>
-								<Radio v-model:value="RadioValue" label="O2" valActive="B" :editable="ui.editable"></Radio>
-								<Radio v-model:value="RadioValue" label="O3" valActive="C" :editable="ui.editable"></Radio>
+								<Radio v-model:value="RadioValue" label="O1" valActive="A" :editable="!ui.viewMode"></Radio>
+								<Radio v-model:value="RadioValue" label="O2" valActive="B" :editable="!ui.viewMode"></Radio>
+								<Radio v-model:value="RadioValue" label="O3" valActive="C" :editable="!ui.viewMode"></Radio>
 							</FormElement>
 							<FormElement label="AAA">
 								<Input v-model:value="SelectValue"></Input>
 							</FormElement>
 							<FormElement label="BBB">
-								<Select v-model:value="SelectValue" :codes="codes.BPType" :editable="ui.editable"></Select>
+								<Select v-model:value="SelectValue" :codes="codes.BPType" :editable="!ui.viewMode"></Select>
 							</FormElement>
 						</FormContainer>
 					</GridLayout>
@@ -99,7 +99,9 @@ export default {
 		return {
 			ui: {
 				tab: 1,
-				editable: false,
+				addMode: false,
+				viewMode: true,
+				updateMode: false
 			},
 			codes: {
 				BPType: [
@@ -124,14 +126,38 @@ export default {
 	},
 	methods: {
 		onClickEdit(event) {
-			//alert(this.ui.editable);
-			this.ui.editable = true;
+			this.ui.viewMode = false;
+			this.ui.updateMode = true;
 		},
 		onClickCancel(evt) {
-			this.ui.editable = false;
+			this.ui.viewMode = true;
+			this.ui.updateMode = false;
+		},
+		onClickNew(evt) {
+			this.ui.viewMode = false;
+			this.ui.addMode = true;
+			this.ui.updateMode = false;
 		},
 		onClickDelete(evt) {
-			this.ui.editable = false;
+			this.ui.viewMode = false;
+			alert('delete' + JSON.stringify(this.data))
+		},
+		onClickSave(evt) {
+			if(this.ui.addMode) {
+				this.onCreate(evt);
+			} else {
+				this.onUpdate(evt);
+			}
+		},
+		onCreate(evt) {
+			alert('add ' + JSON.stringify(this.data));
+			this.ui.viewMode = true;
+			this.ui.addMode = false;
+		},
+		onUpdate (evt) {
+			alert('update ' + JSON.stringify(this.data));
+			this.ui.viewMode = true;
+			this.ui.updateMode = false;
 		},
 		onClickButton(event) {
 			alert(1);
