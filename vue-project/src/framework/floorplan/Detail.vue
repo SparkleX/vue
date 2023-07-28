@@ -1,8 +1,8 @@
 <template>
-    <div class="header">{{ title }}</div>
-
-    <slot></slot>
-
+	<div class="header">{{ title }}
+		<slot name="toolsbar"></slot>
+	</div>
+	<slot></slot>
 </template>
 <style scoped>
 .header {
@@ -10,23 +10,17 @@
 	background-color: burlywood;
 }
 </style>
+<script setup>
+import Button from '../../framework/control/Button.vue'
+</script >
 <script>
 export default {
-	props: ['title', 'table']/*,
-	data() {
-		return {
-			metadata: null,
-			loading: true,
-			data: []
-		};
-	},
-	async created() {
-		try {
-			this.metadata = await oMetadataApi.listViewMetadata(null, {table:this.table});
-			this.data = await oMetadataApi.listViewData(null, {table:this.table});
-		} finally {
-			this.loading = false;
+	props: ['title', 'table'],
+	methods: {
+		onClickEdit(event) {
+			alert('edit');
 		}
-	},*/
+
+	}
 }
 </script>

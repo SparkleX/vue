@@ -1,6 +1,6 @@
 <template>
-	<button v-if="isIcon==false" class="button" @click="onClick">{{ value }}</button>
-	<button v-if="isIcon==true" class="button_icon" @click="onClick">{{iconCode}}</button>
+	<button v-if="isIcon==false" class="button" @click="onClickButton">{{ value }}</button>
+	<button v-if="isIcon==true" class="button_icon" @click="onClickButton">{{iconCode}}</button>
 </template>
  
 <style scoped>
@@ -20,9 +20,10 @@ import Icon from "../icons/Icon"
 <script>
 export default {
 	props: ['value', 'icon'],
+	emits: ['onClick'],
 	methods: {
-		onClick(event) {
-			return false;
+		onClickButton(event) {
+			this.$emit("onClick", event);
 		}
 	},
 	computed: {

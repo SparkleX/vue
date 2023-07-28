@@ -1,5 +1,8 @@
 <template>
 	<Detail title="Business Partner">
+		<template #toolsbar>
+			<Button value="Edit" @onClick="onClickEdit"></Button>
+		</template>
 		<Tab v-model:value="ui.tab">
 			<TabContent id="General" :value="ui.tab" activeValue="1" title="General">
 				<GridContainer>
@@ -9,7 +12,7 @@
 								<Select v-model:value="data.CardType" :codes="codes.BPType"></Select><br>
 							</FormElement>
 							<FormElement label="BP Code">
-								<Input v-model:value="data.CardCode"></Input>
+								<Input v-model:value="data.CardCode" :editable="ui.editable"></Input>
 							</FormElement>
 							<FormElement label="BP Name">
 								<Input v-model:value="data.CardName"></Input>
@@ -87,7 +90,8 @@ export default {
 	data: function () {
 		return {
 			ui: {
-				tab: 1
+				tab: 1,
+				editable: false
 			},
 			codes: {
 				BPType: [
@@ -111,10 +115,15 @@ export default {
 		}
 	},
 	methods: {
+		onClickEdit(event) {
+			alert(this.ui.editable);
+			this.ui.editable = true;
+		},
 		onClickButton(event) {
 			alert(1);
-
 		},
 	},
 }
 </script>
+
+

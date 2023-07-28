@@ -1,5 +1,6 @@
 <template>
-    <input class="super_input" type="text" :value="value" @input="onChange" />
+    <input v-if="editable==true" class="super_input" type="text" :value="value" @input="onChange" />
+	<div v-if="editable==false">{{value}}</div>
 </template>
   
 <style scoped>
@@ -13,7 +14,7 @@
 
 <script>
 export default {
-  props: ['value'],
+  props: ['value','editable'],
   methods: {
     onChange(event) {
       this.$emit("update:value", event.target.value);
