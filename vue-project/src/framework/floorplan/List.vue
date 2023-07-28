@@ -8,7 +8,7 @@
 	</div>
 	<div class="list" v-if="this.metadata">
 		<div class="table_bar">
-			<Button value="New"></Button>
+			<Button value="New" @onClick="onClickNew" type="emphasis"></Button>
 		</div>
 		<table>
 			<tr>
@@ -22,7 +22,7 @@
 				<td v-for="item in this.metadata.order">
 					{{ d[item] }}
 				</td>
-				<td> <Button icon="navigation-right-arrow"></button></td>
+				<td> <Button icon="navigation-right-arrow" @onClick="onClickGoDetail"></button></td>
 			</tr>
 		</table>
 	</div>
@@ -81,6 +81,14 @@ export default {
 			loading: true,
 			data: []
 		};
+	},
+	methods: {
+		onClickNew(evt) {
+			this.$router.push({ path: '/CARD/Detail/new'});
+		},
+		onClickGoDetail(evt) {
+			this.$router.push({ path: '/CARD/Detail/1'});
+		}
 	},
 	async created() {
 		try {

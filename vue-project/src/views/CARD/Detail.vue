@@ -94,6 +94,7 @@ import FormContainer from '../../framework/layout/FormContainer.vue'
 import FormElement from '../../framework/layout/FormElement.vue'
 </script>
 <script>
+// this.$route.params.id,
 export default {
 	data: function () {
 		return {
@@ -124,14 +125,20 @@ export default {
 			
 		}
 	},
+	beforeMount() {
+		if (this.$route.params.id == 'new') {
+			this.ui.addMode = true;
+			this.ui.updateMode = false;
+			this.ui.viewMode = false;
+		}
+	},
 	methods: {
 		onClickEdit(event) {
 			this.ui.viewMode = false;
 			this.ui.updateMode = true;
 		},
 		onClickCancel(evt) {
-			this.ui.viewMode = true;
-			this.ui.updateMode = false;
+			this.$router.go(-1);
 		},
 		onClickNew(evt) {
 			this.ui.viewMode = false;
@@ -140,7 +147,10 @@ export default {
 		},
 		onClickDelete(evt) {
 			this.ui.viewMode = false;
-			alert('delete' + JSON.stringify(this.data))
+			alert('delete' + JSON.stringify(this.data));
+			//alert(JSON.stringify(this.$router.currentRoute));
+			//this.$router.push({ path: '/List', replace: true })
+			this.$router.go(-1);
 		},
 		onClickSave(evt) {
 			if(this.ui.addMode) {

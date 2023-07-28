@@ -30,7 +30,7 @@ const router = createRouter({
 			component: CARDList
 		},
 		{
-			path: '/CARD/Detail',
+			path: '/CARD/Detail/:id',
 			name: 'CARDDetail',
 			component: CARDDetail
 		},

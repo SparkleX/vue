@@ -16,6 +16,12 @@
 .button_icon {
 	height: 2rem;
 	width: 2rem;
+	border-radius: 5px;
+	margin-left: 0.25rem;
+	margin-right: 0.25rem;
+	min-width: 2rem;
+	background-color: transparent;
+	border: 0;
 	font-family: 'IconFont', Fallback, sans-serif;
 }
 

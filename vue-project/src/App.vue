@@ -8,7 +8,7 @@ import { RouterLink, RouterView } from 'vue-router'
 		<div class="menu">
 			<p></p>
 			<RouterLink to="/CARD/List">Business Partner</RouterLink>&nbsp;
-			<RouterLink to="/CARD/Detail">[+]</RouterLink>
+			<RouterLink to="/CARD/Detail/new">[+]</RouterLink>
 			<p></p>
 			<RouterLink to="/ITEM/List">Item Master Data</RouterLink>&nbsp;
 			<RouterLink to="/ITEM/Detail">[+]</RouterLink>
