@@ -17,7 +17,7 @@
 					<GridLayout>
 						<FormContainer>
 							<FormElement label="BP Type">
-								<Select v-model:value="data.CardType" :codes="codes.BPType"></Select><br>
+								<Select v-model:value="data.CardType" :codes="codes.BPType" :editable="ui.editable"></Select><br>
 							</FormElement>
 							<FormElement label="BP Code">
 								<Input v-model:value="data.CardCode" :editable="ui.editable"></Input>
@@ -109,7 +109,7 @@ export default {
 				]
 			},
 			data: {
-				CardType: "C",
+				CardType: "S",
 				CardCode: "C001",
 				CardName: "Microsoft"
 			},

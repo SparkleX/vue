@@ -29,7 +29,13 @@ const checked_value = computed({
 </script>
 <script>
 export default {
-	props: ['value', 'valYes', 'valNo','label'] ,
+	props: {
+		value: { type: String },
+		valYes: { type: String },
+		valNo: { type: String },
+		editable: { type: Boolean, default: true },
+		enable: { type: Boolean, default: true },
+	},
 	methods: {
 		onChange(event) {
 			this.$emit("update:value", event.target.checked ? this.valYes : this.valNo);
