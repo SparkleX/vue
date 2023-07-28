@@ -1,7 +1,15 @@
 <template>
-	<Detail title="Business Partner">
+	<Detail title="Business Partner" :showFooter="ui.editable">
 		<template #toolsbar>
-			<Button value="Edit" @onClick="onClickEdit"></Button>
+			<Button value="New" :visible="!ui.editable" @onClick="onClickEdit" type="emphasis"></Button>
+			<Button value="Edit" :visible="!ui.editable" @onClick="onClickEdit" type="emphasis"></Button>
+			<Button value="Duplicate" :visible="!ui.editable" @onClick="onClickEdit"></Button>
+			<Button value="Delete" :visible="!ui.editable" @onClick="onClickDelete"></Button>
+
+		</template>
+		<template #footer>
+			<Button value="Save" @onClick="onClickCancel" type="emphasis"></Button>
+			<Button value="Cancel" @onClick="onClickCancel"></Button>
 		</template>
 		<Tab v-model:value="ui.tab">
 			<TabContent id="General" :value="ui.tab" activeValue="1" title="General">
@@ -91,7 +99,7 @@ export default {
 		return {
 			ui: {
 				tab: 1,
-				editable: false
+				editable: false,
 			},
 			codes: {
 				BPType: [
@@ -116,8 +124,14 @@ export default {
 	},
 	methods: {
 		onClickEdit(event) {
-			alert(this.ui.editable);
+			//alert(this.ui.editable);
 			this.ui.editable = true;
+		},
+		onClickCancel(evt) {
+			this.ui.editable = false;
+		},
+		onClickDelete(evt) {
+			this.ui.editable = false;
 		},
 		onClickButton(event) {
 			alert(1);
