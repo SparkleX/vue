@@ -37,10 +37,10 @@
 					<GridLayout>
 						<FormContainer>
 							<FormElement label="Balance">
-								<Check v-model:value="YesNo" valYes="T" valNo="F" label="Hello"></Check>
+								<Check v-model:value="YesNo" valYes="T" valNo="F" label="Hello" :editable="ui.editable"></Check>
 							</FormElement>
 							<FormElement label="">
-								<Check id="aaa" v-model:value="YesNo" valYes="T" valNo="F" label="World"></Check>
+								<Check id="aaa" v-model:value="YesNo" valYes="T" valNo="F" label="World" :editable="ui.editable"></Check>
 							</FormElement>
 						</FormContainer>
 					</GridLayout>
