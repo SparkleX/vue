@@ -53,15 +53,15 @@
 								<Input v-model:value="RadioValue"></Input>
 							</FormElement>
 							<FormElement label="">
-								<Radio v-model:value="RadioValue" label="O1" valActive="A"></Radio>
-								<Radio v-model:value="RadioValue" label="O2" valActive="B"></Radio>
-								<Radio v-model:value="RadioValue" label="O3" valActive="C"></Radio>
+								<Radio v-model:value="RadioValue" label="O1" valActive="A" :editable="ui.editable"></Radio>
+								<Radio v-model:value="RadioValue" label="O2" valActive="B" :editable="ui.editable"></Radio>
+								<Radio v-model:value="RadioValue" label="O3" valActive="C" :editable="ui.editable"></Radio>
 							</FormElement>
 							<FormElement label="AAA">
 								<Input v-model:value="SelectValue"></Input>
 							</FormElement>
 							<FormElement label="BBB">
-								<Select v-model:value="SelectValue" :codes="SelectValues"></Select><br>
+								<Select v-model:value="SelectValue" :codes="codes.BPType" :editable="ui.editable"></Select>
 							</FormElement>
 						</FormContainer>
 					</GridLayout>
