@@ -1,7 +1,13 @@
+import { defineAsyncComponent } from 'vue'
+
 export default function openChooseFromList(table) {
-    alert(table);
-    const component = () => import(`./${table}Cfl.vue`);
-    alert(component);
+    const AsyncComp = defineAsyncComponent(() =>
+    import(`./${table}Cfl.vue`)
+    )
+    return AsyncComp;
+    //alert(table);
+    //const component = () => import(`./${table}Cfl.vue`);
+    //alert(component);
     
 }
 

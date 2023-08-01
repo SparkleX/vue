@@ -96,19 +96,14 @@ import GridLayout from '../../framework/layout/GridLayout.vue'
 import FormContainer from '../../framework/layout/FormContainer.vue'
 import FormElement from '../../framework/layout/FormElement.vue'
 import openChooseFromList from '../../choose/ChooseFromList'
-import CARDCfl from '../../choose/CARDCfl.vue'
-import ITEMCfl from '../../choose/ITEMCfl.vue'
-
+import { defineAsyncComponent } from 'vue'
 </script>
 <script>
 // this.$route.params.id,
 export default {
-	components: {
-    	CARDCfl, ITEMCfl
-  	},
 	data: function () {
 		return {
-			chooseFromList: "CARDCfl",
+			chooseFromList: null,
 			ui: {
 				tab: 1,
 				addMode: false,
@@ -184,12 +179,10 @@ export default {
 			alert(1);
 		},
 		onClickChooseBP(event) {
-			this.chooseFromList = "CARDCfl";
-			//openChooseFromList('CARD');
+			this.chooseFromList = openChooseFromList('CARD');
 		},
 		onClickChooseItem(event) {
-			this.chooseFromList = "ITEMCfl";
-			//openChooseFromList('ITEM');
+			this.chooseFromList = openChooseFromList('ITEM');
 		}
 	},
 }
