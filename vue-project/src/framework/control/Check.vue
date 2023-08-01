@@ -7,30 +7,10 @@
  
 <style scoped>
 </style>
-<script setup>
-import { defineProps, computed } from 'vue'
-/*const props = defineProps({
-	value: [Boolean, String],
-	valYes: {
-		type: String,
-		default: 'Y'
-	},
-	valNo: {
-		type: String,
-		default: 'N'
-	}
-});
-
-const checked_value = computed({
-	get() {
-		
-	}
-})*/
-</script>
 <script>
 export default {
 	props: {
-		value: { type: String },
+		value: { type: [String, Boolean] },
 		valYes: { type: String, default: 'Y' },
 		valNo: { type: String, default: 'N' },
 		label: { type: String, default: "CheckBox" },

@@ -50,7 +50,7 @@
 					<GridLayout>
 						<FormContainer>
 							<FormElement label="Balance">
-								<Button :value="text" @click="onClickButton" />
+								<Button :value="text" @onClick="onClickButton"></Button>
 							</FormElement>
 							<FormElement label="">
 								<Input v-model:value="RadioValue"></Input>
@@ -105,7 +105,7 @@ export default {
 		return {
 			chooseFromList: null,
 			ui: {
-				tab: 1,
+				tab: "1",
 				addMode: false,
 				viewMode: true,
 				updateMode: false
