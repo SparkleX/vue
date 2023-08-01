@@ -1,5 +1,6 @@
 <template>
 	<Detail title="Business Partner" :showFooter="!ui.viewMode">
+		<component :is="chooseFromList" />
 		<template #toolsbar>
 			<Button value="New" :visible="ui.viewMode" @onClick="onClickNew" type="emphasis"></Button>
 			<Button value="Edit" :visible="ui.viewMode" @onClick="onClickEdit" type="emphasis"></Button>
@@ -7,7 +8,6 @@
 			<Button value="Delete" :visible="ui.viewMode" @onClick="onClickDelete"></Button>
 			<Button value="Open BP" :visible="ui.viewMode" @onClick="onClickChooseBP"></Button>
 			<Button value="Open Item" :visible="ui.viewMode" @onClick="onClickChooseItem"></Button>
-
 		</template>
 
 		<template #footer>
@@ -95,12 +95,20 @@ import GridContainer from '../../framework/layout/GridContainer.vue'
 import GridLayout from '../../framework/layout/GridLayout.vue'
 import FormContainer from '../../framework/layout/FormContainer.vue'
 import FormElement from '../../framework/layout/FormElement.vue'
+import openChooseFromList from '../../choose/ChooseFromList'
+import CARDCfl from '../../choose/CARDCfl.vue'
+import ITEMCfl from '../../choose/ITEMCfl.vue'
+
 </script>
 <script>
 // this.$route.params.id,
 export default {
+	components: {
+    	CARDCfl, ITEMCfl
+  	},
 	data: function () {
 		return {
+			chooseFromList: "CARDCfl",
 			ui: {
 				tab: 1,
 				addMode: false,
@@ -176,10 +184,12 @@ export default {
 			alert(1);
 		},
 		onClickChooseBP(event) {
-
+			this.chooseFromList = "CARDCfl";
+			//openChooseFromList('CARD');
 		},
 		onClickChooseItem(event) {
-
+			this.chooseFromList = "ITEMCfl";
+			//openChooseFromList('ITEM');
 		}
 	},
 }
