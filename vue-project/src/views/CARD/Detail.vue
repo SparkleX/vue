@@ -5,8 +5,11 @@
 			<Button value="Edit" :visible="ui.viewMode" @onClick="onClickEdit" type="emphasis"></Button>
 			<Button value="Duplicate" :visible="ui.viewMode" @onClick="onClickEdit"></Button>
 			<Button value="Delete" :visible="ui.viewMode" @onClick="onClickDelete"></Button>
+			<Button value="Open BP" :visible="ui.viewMode" @onClick="onClickChooseBP"></Button>
+			<Button value="Open Item" :visible="ui.viewMode" @onClick="onClickChooseItem"></Button>
 
 		</template>
+
 		<template #footer>
 			<Button value="Save" @onClick="onClickSave" type="emphasis"></Button>
 			<Button value="Cancel" @onClick="onClickCancel"></Button>
@@ -172,6 +175,12 @@ export default {
 		onClickButton(event) {
 			alert(1);
 		},
+		onClickChooseBP(event) {
+
+		},
+		onClickChooseItem(event) {
+
+		}
 	},
 }
 </script>

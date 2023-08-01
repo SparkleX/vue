@@ -1,9 +1,13 @@
 <template>
 	<button v-if="isIcon == false " v-show="visible" :class="style" @click="onClickButton">{{ value }}</button>
-	<button v-if="isIcon == true" v-show="visible" class="button_icon" @click="onClickButton">{{ iconCode }}</button>
+	<button v-if="isIcon == true" v-show="visible" class="button_base button_icon" @click="onClickButton">{{ iconCode }}</button>
 </template>
  
 <style scoped>
+
+.button_base {
+	cursor:pointer;
+}
 .button {
 	height: 2rem;
 	border-radius: 5px;
@@ -11,6 +15,7 @@
 	margin-left: 0.25rem;
 	margin-right: 0.25rem;
 	min-width: 5rem;
+
 }
 
 .button_icon {
@@ -57,9 +62,9 @@ export default {
 		},
 		style() {
 			if (this.type == "emphasis") {
-				return "button button_emphasis";
+				return "button_base button button_emphasis";
 			}
-			return "button"
+			return "button_base button"
 		}
 	}
 }

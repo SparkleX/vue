@@ -39,7 +39,7 @@
 </style>
 <script setup>
 import Button from '../../framework/control/Button.vue'
-</script >
+</script>
 <script>
 export default {
 	props: ['title', 'table', 'showFooter'],
