@@ -96,7 +96,7 @@ import GridLayout from '../../framework/layout/GridLayout.vue'
 import FormContainer from '../../framework/layout/FormContainer.vue'
 import FormElement from '../../framework/layout/FormElement.vue'
 import openChooseFromList from '../../choose/ChooseFromList'
-import { defineAsyncComponent } from 'vue'
+import { markRaw,defineAsyncComponent } from 'vue'
 </script>
 <script>
 // this.$route.params.id,
@@ -179,10 +179,10 @@ export default {
 			alert(1);
 		},
 		onClickChooseBP(event) {
-			this.chooseFromList = openChooseFromList('CARD');
+			this.chooseFromList = markRaw(openChooseFromList('CARD'));
 		},
 		onClickChooseItem(event) {
-			this.chooseFromList = openChooseFromList('ITEM');
+			this.chooseFromList = markRaw(openChooseFromList('ITEM'));
 		}
 	},
 }
