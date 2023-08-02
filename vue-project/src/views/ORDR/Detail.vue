@@ -16,7 +16,10 @@
 					<GridLayout>
 						<FormContainer>
 							<FormElement label="Business Parter">
-								<SuperLink v-model:value="data.CardId" :editable="!ui.viewMode"></SuperLink>
+								<SuperLink v-model:value="data.CardId" :editable="!ui.viewMode" linkTo="CARD"></SuperLink>
+							</FormElement>
+							<FormElement label="Items">
+								<SuperLink v-model:value="data.CardId" :editable="!ui.viewMode" linkTo="ITEM"></SuperLink>
 							</FormElement>
 						</FormContainer>
 					</GridLayout>

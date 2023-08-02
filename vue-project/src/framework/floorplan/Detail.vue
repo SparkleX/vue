@@ -21,7 +21,6 @@
 	width: 50%;
 	text-align: right;
 	display:inline-block;
-
 }
 .footerbar {
 	background-color:black;

@@ -11,10 +11,10 @@ import { RouterLink, RouterView } from 'vue-router'
 			<RouterLink to="/CARD/Detail/new">[+]</RouterLink>
 			<p></p>
 			<RouterLink to="/ITEM/List">Item Master Data</RouterLink>&nbsp;
-			<RouterLink to="/ITEM/Detail">[+]</RouterLink>
+			<RouterLink to="/ITEM/Detail/new">[+]</RouterLink>
 			<p></p>
 			<RouterLink to="/ORDR/List">Sales Order</RouterLink>&nbsp;
-			<RouterLink to="/ORDR/Detail">[+]</RouterLink>
+			<RouterLink to="/ORDR/Detail/new">[+]</RouterLink>
 			<p></p>
 		</div>
 		<div class="body">
