@@ -68,6 +68,7 @@ td {
 <script setup>
 
 
+import oBoAll from '../../api/BoAll'
 import oMetadataApi from '../../api/Metadata'
 import Button from '../../framework/control/Button.vue'
 </script>
@@ -93,7 +94,7 @@ export default {
 	async created() {
 		try {
 			this.metadata = await oMetadataApi.listViewMetadata(null, { table: this.table });
-			this.data = await oMetadataApi.listViewData(null, { table: this.table });
+			this.data = await oBoAll.findAll(null, { table: this.table });
 		} finally {
 			this.loading = false;
 		}

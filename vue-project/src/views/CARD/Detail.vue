@@ -179,7 +179,7 @@ export default {
 			alert(1);
 		},
 		onClickChooseBP(event) {
-			this.chooseFromList = markRaw(openChooseFromList('CARD'));
+			this.chooseFromList = markRaw(openChooseFromList('CARD1'));
 		},
 		onClickChooseItem(event) {
 			this.chooseFromList = markRaw(openChooseFromList('ITEM'));
