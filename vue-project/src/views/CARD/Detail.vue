@@ -105,7 +105,7 @@ export default {
 	data: function () {
 		return {
 			chooseFromList: null,
-			table: OCRD,
+			table: "CARD",
 			ui: {
 				tab: "1",
 				addMode: false,
@@ -144,8 +144,9 @@ export default {
 		this.getByKey();
 	},
 	methods: {
-		getByKey() {
-			oBoAll.findById(null, {table:this.table, id: this.data.NodeId});
+		async getByKey() {
+			const data = await oBoAll.findById(null, {table:this.table, id: this.$route.params.id});
+			this.data = data;
 		},
 		onClickEdit(event) {
 			this.ui.viewMode = false;
@@ -162,10 +163,9 @@ export default {
 				this.data[v] = null;
 			}
 		},
-		onClickDelete(evt) {
-			this.ui.viewMode = false;
-			alert('delete' + JSON.stringify(this.data));
-			oBoAll.delete(null, {table: this.table, id:this.data.NodeId})
+		async onClickDelete(evt) {
+			await oBoAll.delete(null, {table: this.table, id:this.data.NodeId})
+			this.ui.viewMode = false;			
 			this.$router.go(-1);
 		},
 		onClickSave(evt) {
@@ -175,15 +175,17 @@ export default {
 				this.onUpdate(evt);
 			}
 		},
-		onCreate(evt) {
-			alert('add ' + JSON.stringify(this.data));
+		async onCreate(evt) {
+			const id = await oBoAll.create(this.data, {table: this.table});
 			this.ui.viewMode = true;
 			this.ui.addMode = false;
+			this.$router.push({ path: `/CARD/Detail/${id}`});
 		},
-		onUpdate (evt) {
-			alert('update ' + JSON.stringify(this.data));
+		async onUpdate (evt) {
+			await oBoAll.update(this.data, {table: this.table, id:this.data.NodeId});
 			this.ui.viewMode = true;
 			this.ui.updateMode = false;
+			
 		},
 		onClickButton(event) {
 			alert(1);

@@ -22,7 +22,7 @@
 				<td v-for="item in this.metadata.order">
 					{{ d[item] }}
 				</td>
-				<td> <Button icon="navigation-right-arrow" @onClick="onClickGoDetail"></button></td>
+				<td> <Button icon="navigation-right-arrow" @onClick="onClickGoDetail($event, d.NodeId)"></button></td>
 			</tr>
 		</table>
 	</div>
@@ -85,10 +85,10 @@ export default {
 	},
 	methods: {
 		onClickNew(evt) {
-			this.$router.push({ path: '/CARD/Detail/new'});
+			this.$router.push({ path: `/${this.table}/Detail/new`});
 		},
-		onClickGoDetail(evt) {
-			this.$router.push({ path: '/CARD/Detail/1'});
+		onClickGoDetail(evt, id) {
+			this.$router.push({ path: `/${this.table}/Detail/${id}`});
 		}
 	},
 	async created() {

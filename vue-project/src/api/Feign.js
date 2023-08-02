@@ -40,6 +40,7 @@ class Feign {
 
 			return response;
 		} catch (e) {
+			console.error(e);
 		}
 	};
 
