@@ -97,6 +97,7 @@ import FormContainer from '../../framework/layout/FormContainer.vue'
 import FormElement from '../../framework/layout/FormElement.vue'
 import openChooseFromList from '../../choose/ChooseFromList'
 import { markRaw,defineAsyncComponent } from 'vue'
+import oBoAll from '../../api/BoAll'
 </script>
 <script>
 // this.$route.params.id,
@@ -104,6 +105,7 @@ export default {
 	data: function () {
 		return {
 			chooseFromList: null,
+			table: OCRD,
 			ui: {
 				tab: "1",
 				addMode: false,
@@ -136,9 +138,15 @@ export default {
 			this.ui.addMode = true;
 			this.ui.updateMode = false;
 			this.ui.viewMode = false;
-		}
+			this.onClickNew();
+			return;
+		} 
+		this.getByKey();
 	},
 	methods: {
+		getByKey() {
+			oBoAll.findById(null, {table:this.table, id: this.data.NodeId});
+		},
 		onClickEdit(event) {
 			this.ui.viewMode = false;
 			this.ui.updateMode = true;
@@ -150,12 +158,14 @@ export default {
 			this.ui.viewMode = false;
 			this.ui.addMode = true;
 			this.ui.updateMode = false;
+			for(let v in this.data) {
+				this.data[v] = null;
+			}
 		},
 		onClickDelete(evt) {
 			this.ui.viewMode = false;
 			alert('delete' + JSON.stringify(this.data));
-			//alert(JSON.stringify(this.$router.currentRoute));
-			//this.$router.push({ path: '/List', replace: true })
+			oBoAll.delete(null, {table: this.table, id:this.data.NodeId})
 			this.$router.go(-1);
 		},
 		onClickSave(evt) {
