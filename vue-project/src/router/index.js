@@ -20,7 +20,7 @@ const router = createRouter({
 			component: ORDRList
 		},
 		{
-			path: '/ORDR/Detail',
+			path: '/ORDR/Detail/:id',
 			name: 'ORDRDetail',
 			component: ORDRDetail
 		},
@@ -39,7 +39,7 @@ const router = createRouter({
 			name: 'ITEMList',
 			component: ITEMList
 		}, {
-			path: '/ITEM/Detail',
+			path: '/ITEM/Detail/:id',
 			name: 'ITEMDetail',
 			component: ITEMDetail
 		}
