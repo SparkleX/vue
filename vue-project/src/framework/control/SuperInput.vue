@@ -7,6 +7,9 @@
 .super_input {
   height: 2rem;
   width: 100%;
+  padding: 0rem;
+  border: 0px solid black;
+
 }
 </style>
 

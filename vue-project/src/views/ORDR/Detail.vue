@@ -32,7 +32,7 @@
 						<SuperInput v-model:value="props.row.LineNum"></SuperInput>
 					</template>
 					<template #ItemId="{row}" >
-						<SuperInput v-model:value="row.ItemId"></SuperInput>
+						<SuperLink v-model:value="row.ItemId" linkTo="ITEM"/>
 					</template>		
 					<template #Qty="{row}" >
 						<SuperInput v-model:value="row.Qty"></SuperInput>
