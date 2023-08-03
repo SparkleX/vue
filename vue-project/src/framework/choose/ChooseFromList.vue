@@ -7,15 +7,13 @@
 				<Button value="New" @onClick="onClickNew" type="emphasis"></Button>
 			</div>
 			<table>
-				<tr>
-					<th v-for="item in this.metadata.order">
+				<tr class="table_row" >
+					<th v-for="item in this.metadata.order" class="table_cell">
 						{{ this.metadata.columns[item].name }}
 					</th>
-					<th>
-					</th>
 				</tr>
-				<tr v-for="d in this.data">
-					<td v-for="item in this.metadata.order">
+				<tr v-for="d in this.data" @click="onClickRow($event, d)" class="table_row">
+					<td v-for="item in this.metadata.order" class="table_cell">
 						{{ d[item] }}
 					</td>
 				</tr>
@@ -27,28 +25,6 @@
 </template>
  
 <style scoped>
-/*.background {
-	z-index: 101;
-	background-color: white;
-	margin: 0.5rem;
-	position: absolute;
-	width: calc(100% - 1.5rem);
-	border-radius: 6px;
-	border: 3px solid cornflowerblue;
-	left: 10%;
-	right: 10%;
-	top: 10%;
-	padding: 8px 0;
-	text-align: left;
-	padding-left: 0.5rem;
-	padding-right: 0.5rem;
-}
-
-.header {
-	padding: 1rem;
-	background-color: cornflowerblue;
-}*/
-
 .list {
 	padding: 0.5rem;
 }
@@ -56,7 +32,15 @@
 table {
 	width: 100%;
 	border-collapse: collapse;
-	border: 2px solid;
+	border: 1px solid;
+}
+
+.table_row {
+	line-height: 2rem;
+}
+.table_cell {
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 
 th,
@@ -103,6 +87,11 @@ export default {
 		};
 	},
 	methods: {
+		onClickRow(event, row) {
+			//alert(row.NodeId);
+			this.$emit("onChoose", row.NodeId);
+
+		},
 		onClickChoose(event) {
 			this.$emit("onChoose", event);
 		},
