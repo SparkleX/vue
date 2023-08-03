@@ -23,17 +23,17 @@
 								<Select v-model:value="data.CardType" :codes="codes.BPType" :editable="!ui.viewMode"></Select><br>
 							</FormElement>
 							<FormElement label="BP Code">
-								<Input v-model:value="data.CardCode" :editable="!ui.viewMode"></Input>
+								<SuperInput v-model:value="data.CardCode" :editable="!ui.viewMode"></SuperInput>
 							</FormElement>
 							<FormElement label="BP Name">
-								<Input v-model:value="data.CardName"></Input>
+								<SuperInput v-model:value="data.CardName"></SuperInput>
 							</FormElement>
 						</FormContainer>
 					</GridLayout>
 					<GridLayout>
 						<FormContainer>
 							<FormElement label="Balance">
-								<Input v-model:value="YesNo"></Input>
+								<SuperInput v-model:value="YesNo"></SuperInput>
 							</FormElement>
 						</FormContainer>
 					</GridLayout>
@@ -53,7 +53,7 @@
 								<Button :value="text" @onClick="onClickButton"></Button>
 							</FormElement>
 							<FormElement label="">
-								<Input v-model:value="RadioValue"></Input>
+								<SuperInput v-model:value="RadioValue"></SuperInput>
 							</FormElement>
 							<FormElement label="">
 								<Radio v-model:value="RadioValue" label="O1" valActive="A" :editable="!ui.viewMode"></Radio>
@@ -61,7 +61,7 @@
 								<Radio v-model:value="RadioValue" label="O3" valActive="C" :editable="!ui.viewMode"></Radio>
 							</FormElement>
 							<FormElement label="AAA">
-								<Input v-model:value="SelectValue"></Input>
+								<SuperInput v-model:value="SelectValue"></SuperInput>
 							</FormElement>
 							<FormElement label="BBB">
 								<Select v-model:value="SelectValue" :codes="codes.BPType" :editable="!ui.viewMode"></Select>
@@ -82,7 +82,7 @@
 	</Detail>
 </template>
 <script setup>
-import Input from '../../framework/control/Input.vue'
+import SuperInput from '../../framework/control/SuperInput.vue'
 import Label from '../../framework/control/Label.vue'
 import Button from '../../framework/control/Button.vue'
 import Check from '../../framework/control/Check.vue'

@@ -1,10 +1,10 @@
 <template>
-
 	<div class="control">
 		<input v-if="editable == true" class="super_link" type="text" :value="value" @input="onChange" />
-		<!--<div v-if="editable == false">{{ value }}</div>-->
+		<div v-if="editable == true" class="btn" @click="onClickButton">&#xe1f3</div>
+		<div v-if="editable == false">{{ value }}</div>
 
-		<div class="btn" @click="onClickButton">&#xe1f3</div>
+		
 	</div>
 		<component :is="chooseFromList" @onChoose="onPressChoose" @onCancel="onChooseCancel" :table="linkTo" :visible="chooseFromListVisible"/>
 
@@ -24,6 +24,7 @@
 	height: 2rem;
 	width: calc(100% - 2.35rem);
 }
+
 .super_link:focus{
     outline: none;
 }
@@ -50,7 +51,11 @@ import openChooseFromList from '../../choose/ChooseFromList'
 
 <script>
 export default {
-	props: ['value', 'linkTo', 'editable'],
+	props: {
+		value: {type: String},
+		linkTo: {type: String},
+		editable:{type: Boolean, default: true}
+	},
 	data: function () {
 		return {
 			chooseFromList: null,

@@ -15,7 +15,7 @@
 				<GridContainer>
 					<GridLayout>
 						<FormContainer>
-							<FormElement label="Business Parter">
+							<FormElement label="Business Partner">
 								<SuperLink v-model:value="data.CardId" :editable="!ui.viewMode" linkTo="CARD"></SuperLink>
 							</FormElement>
 							<FormElement label="Items">
@@ -24,6 +24,26 @@
 						</FormContainer>
 					</GridLayout>
 				</GridContainer>
+				<SuperTable v-model:value="data.DOC1" :columnHeader="['Node Id','#','Item','Qty','Price','Total']" :columns="['NodeId','LineNum','ItemId','Qty','Price','LineTotal']">
+					<template #NodeId="{row}">
+						<SuperInput v-model:value="row.NodeId"></SuperInput>
+					</template>
+					<template #LineNum="props" >
+						<SuperInput v-model:value="props.row.LineNum"></SuperInput>
+					</template>
+					<template #ItemId="{row}" >
+						<SuperInput v-model:value="row.ItemId"></SuperInput>
+					</template>		
+					<template #Qty="{row}" >
+						<SuperInput v-model:value="row.Qty"></SuperInput>
+					</template>	
+					<template #Price="{row}" >
+						<SuperInput v-model:value="row.Price"></SuperInput>
+					</template>	
+					<template #LineTotal="{row}" >
+						<SuperInput v-model:value="row.LineTotal"></SuperInput>
+					</template>																			
+				</SuperTable>
 			</TabContent>
 			<TabContent id="Contacts" :value="ui.tab" activeValue="2" title="Contacts">
 				<h3>Paris</h3>
@@ -38,7 +58,7 @@
 </template>
 <script setup>
 import SuperLink from '../../framework/control/SuperLink.vue'
-import Input from '../../framework/control/Input.vue'
+import SuperInput from '../../framework/control/SuperInput.vue'
 import Label from '../../framework/control/Label.vue'
 import Button from '../../framework/control/Button.vue'
 import Check from '../../framework/control/Check.vue'
@@ -54,6 +74,7 @@ import FormElement from '../../framework/layout/FormElement.vue'
 import openChooseFromList from '../../choose/ChooseFromList'
 import { markRaw,defineAsyncComponent } from 'vue'
 import BaseDetail from '../../framework/floorplan/BaseDetail'
+import SuperTable from '../../framework/control/SuperTable.vue'
 </script>
 <script>
 export default {
