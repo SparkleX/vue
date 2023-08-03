@@ -1,6 +1,7 @@
 <template>
-	<div v-if="this.visible" class="background">
-		<div class="header">Choose {{ title }}</div>
+	<Dialog v-if="this.visible" title="Choose" @onPressOk="onClickChoose" @onPressCancel="onClickCancel">
+<!--	<div v-if="this.visible" class="background">
+		<div class="header">Choose {{ title }}</div>-->
 		<div class="list" v-if="this.metadata">
 			<div class="table_bar">
 				<Button value="New" @onClick="onClickNew" type="emphasis"></Button>
@@ -19,20 +20,19 @@
 					</td>
 				</tr>
 			</table>
-			<div class="table_bar">
-				<Button value="Choose" @onClick="onClickChoose" type="emphasis"></Button>
-				<Button value="Cancel" @onClick="onClickCancel" type="emphasis"></Button>
-			</div>
+
 		</div>
-	</div>
+<!--	</div>-->
+</Dialog>
 </template>
  
 <style scoped>
-.background {
+/*.background {
+	z-index: 101;
 	background-color: white;
 	margin: 0.5rem;
 	position: absolute;
-/*	width: calc(100% - 1.5rem);*/
+	width: calc(100% - 1.5rem);
 	border-radius: 6px;
 	border: 3px solid cornflowerblue;
 	left: 10%;
@@ -47,10 +47,10 @@
 .header {
 	padding: 1rem;
 	background-color: cornflowerblue;
-}
+}*/
 
 .list {
-	padding: 1rem;
+	padding: 0.5rem;
 }
 
 table {
@@ -67,6 +67,7 @@ td {
 .table_bar {
 	padding-top: 1rem;
 	padding-bottom: 1rem;
+	text-align: end;
 }
 
 .item {
@@ -87,6 +88,7 @@ td {
 import oBoAll from '../../api/BoAll'
 import oMetadataApi from '../../api/Metadata'
 import Button from '../control/Button.vue'
+import Dialog from '../dialog/Dialog.vue'
 </script>
 
 <script>
