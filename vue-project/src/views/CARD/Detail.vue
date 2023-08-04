@@ -1,5 +1,5 @@
 <template>
-	<Detail title="合作伙伴" :showFooter="!ui.viewMode">
+	<Detail ref="detail" title="合作伙伴" :showFooter="!ui.viewMode">
 		<component :is="chooseFromList" />
 		<template #toolsbar>
 			<SuperButton value="New" :visible="ui.viewMode" @press="onClickNew" type="emphasis"></SuperButton>
@@ -144,19 +144,11 @@ export default {
 				CardType: "S",
 				CardCode: "C001",
 				CardName: "Microsoft"
-			},
-			a: "88888888",
-			b: "aaa",
-			text: "Button",
-			YesNo: true,
-			RadioValue: "B",
-			SelectValue: "1",
-
+			}
 		}
 	},
 
 	methods: {
-
 		onClickButton(event) {
 			alert(1);
 		},

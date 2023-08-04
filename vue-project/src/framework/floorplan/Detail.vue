@@ -7,6 +7,7 @@
 	<div v-if="showFooter==true" class="footerbar">
 		<slot name="footer"></slot>
 	</div>
+	<MessageToast ref="toast" text="hello"/>
 </template>
 <style scoped>
 .title {
@@ -40,11 +41,26 @@
 }
 </style>
 <script setup>
-import Button from '../../framework/control/SuperButton.vue'
+import MessageToast from '../../framework/dialog/MessageToast.vue'
+
 </script>
 <script>
 export default {
-	props: ['title', 'table', 'showFooter'],
+	props: ['title', 'table', 'showFooter','showMessage'],
+	data: function () {
+		return {
+			chooseFromList: null,
+			table: "CARD",
+			ui: {
+				tab: "1",
+				addMode: false,
+				viewMode: true,
+				updateMode: false
+			},
+			codes: {
+			},
+		}
+	},
 	methods: {
 		onClickEdit(event) {
 			alert('edit');
