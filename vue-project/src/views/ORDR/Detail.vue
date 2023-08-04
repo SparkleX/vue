@@ -4,6 +4,7 @@
 		<template #toolsbar>
 			<SuperButton value="New" :visible="ui.viewMode" @press="onClickNew" type="emphasis"></SuperButton>
 			<SuperButton value="Edit" :visible="ui.viewMode" @press="onClickEdit" type="emphasis"></SuperButton>
+			<SuperButton value="Delete" :visible="ui.viewMode" @press="onClickDelete"></SuperButton>
 		</template>
 
 		<template #footer>

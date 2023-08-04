@@ -1,34 +1,38 @@
 <template>
 	<div class="header">{{ title }}</div>
 	<div v-if="this.metadata" class="grid-container">
-		<div v-for="item in this.metadata.order">
-			{{ this.metadata.columns[item].name }}:<br> <input />
+		<div v-for="item in this.metadata.order" class="filter">
+			{{ this.metadata.columns[item].name }}:<br>
+			<SuperInput />
 		</div>
-		<div>Search:<br><SuperButton value="Go"></SuperButton></div>
+		<div class="filter">Search:<br><SuperButton value="Go"></SuperButton></div>
 	</div>
 	<div class="list" v-if="this.metadata">
 		<div class="table_bar">
 			<SuperButton value="New" @press="onClickNew" type="emphasis"></SuperButton>
 		</div>
-		<table>
-			<tr>
-				<th v-for="item in this.metadata.order">
+		<table class="table">
+			<tr class="tr">
+				<th v-for="item in this.metadata.order" class="th">
 					{{ this.metadata.columns[item].name }}
 				</th>
-				<th>
+				<th class="th">
 				</th>
 			</tr>
-			<tr v-for="d in this.data">
-				<td v-for="item in this.metadata.order">
+			<tr v-for="d in this.data" class="tr">
+				<td v-for="item in this.metadata.order" class="td">
 					{{ d[item] }}
 				</td>
-				<td> <SuperButton icon="navigation-right-arrow" @press="onClickGoDetail($event, d.NodeId)"></SuperButton></td>
+				<td class="td"> <SuperButton icon="navigation-right-arrow" @press="onClickGoDetail($event, d.NodeId)"></SuperButton></td>
 			</tr>
 		</table>
 	</div>
 </template>
  
 <style scoped>
+.filter {
+	padding: 0.5rem;
+}
 .header {
 	padding: 1rem;
 	background-color: burlywood;
@@ -37,7 +41,7 @@
 .list {
 	padding: 1rem;
 }
-
+/*
 table {
 	width: 100%;
 	border-collapse: collapse;
@@ -47,6 +51,23 @@ table {
 th,
 td {
 	border: 1px solid;
+}*/
+
+.th {
+	border: 1px solid lightgray;
+	border-collapse: collapse;
+	line-height: 2rem;
+}
+
+.td {
+	border: 1px solid lightgray;
+	border-collapse: collapse;
+	line-height: 2rem;
+}
+
+.table {
+	width: 100%;
+	border-collapse: collapse;
 }
 
 .table_bar {
@@ -66,7 +87,7 @@ td {
 }
 </style>
 <script setup>
-
+import SuperInput from '../control/SuperInput.vue'
 
 import oBoAll from '../../api/BoAll'
 import oMetadataApi from '../../api/Metadata'

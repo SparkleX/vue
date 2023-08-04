@@ -1,5 +1,5 @@
 <template>
-	<Detail title="Business Partner" :showFooter="!ui.viewMode">
+	<Detail title="合作伙伴" :showFooter="!ui.viewMode">
 		<component :is="chooseFromList" />
 		<template #toolsbar>
 			<SuperButton value="New" :visible="ui.viewMode" @press="onClickNew" type="emphasis"></SuperButton>
@@ -20,7 +20,7 @@
 					<GridLayout>
 						<FormContainer>
 							<FormElement label="BP Type">
-								<Select v-model:value="data.CardType" :codes="codes.BPType" :editable="!ui.viewMode"></Select><br>
+								<SuperSelect v-model:value="data.CardType" :codes="codes.BPType" :editable="!ui.viewMode"></SuperSelect>
 							</FormElement>
 							<FormElement label="BP Code">
 								<SuperInput v-model:value="data.CardCode" :editable="!ui.viewMode"></SuperInput>
@@ -56,15 +56,15 @@
 								<SuperInput v-model:value="RadioValue"></SuperInput>
 							</FormElement>
 							<FormElement label="">
-								<Radio v-model:value="RadioValue" label="O1" valActive="A" :editable="!ui.viewMode"></Radio>
-								<Radio v-model:value="RadioValue" label="O2" valActive="B" :editable="!ui.viewMode"></Radio>
-								<Radio v-model:value="RadioValue" label="O3" valActive="C" :editable="!ui.viewMode"></Radio>
+								<SuperRadio v-model:value="RadioValue" label="O1" valActive="A" :editable="!ui.viewMode"></SuperRadio>
+								<SuperRadio v-model:value="RadioValue" label="O2" valActive="B" :editable="!ui.viewMode"></SuperRadio>
+								<SuperRadio v-model:value="RadioValue" label="O3" valActive="C" :editable="!ui.viewMode"></SuperRadio>
 							</FormElement>
 							<FormElement label="AAA">
 								<SuperInput v-model:value="SelectValue"></SuperInput>
 							</FormElement>
 							<FormElement label="BBB">
-								<Select v-model:value="SelectValue" :codes="codes.BPType" :editable="!ui.viewMode"></Select>
+								<SuperSelect v-model:value="SelectValue" :codes="codes.BPType" :editable="!ui.viewMode"></SuperSelect>
 							</FormElement>
 						</FormContainer>
 					</GridLayout>
@@ -84,7 +84,7 @@
 <script setup>
 import SuperInput from '../../framework/control/SuperInput.vue'
 import Label from '../../framework/control/Label.vue'
-import Button from '../../framework/control/SuperButton.vue'
+import SuperButton from '../../framework/control/SuperButton.vue'
 import SuperCheck from '../../framework/control/SuperCheck.vue'
 import SuperRadio from '../../framework/control/SuperRadio.vue'
 import SuperSelect from '../../framework/control/SuperSelect.vue'

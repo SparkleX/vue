@@ -48,7 +48,7 @@ export default {
 			const id = await oBoAll.create(this.data, { table: this.table });
 			this.ui.viewMode = true;
 			this.ui.addMode = false;
-			this.$router.push({ path: `/CARD/Detail/${id}` });
+			this.$router.push({ path: `/${this.table}/Detail/${id}` });
 		},
 		async onUpdate(evt) {
 			await oBoAll.update(this.data, { table: this.table, id: this.data.NodeId });
