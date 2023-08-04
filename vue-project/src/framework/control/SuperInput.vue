@@ -33,7 +33,7 @@
 <script>
 export default {
   props: {
-    value: {type: String},
+    value: {type: [String,Number]},
     editable:{ type: Boolean, default: true}
   },
   methods: {

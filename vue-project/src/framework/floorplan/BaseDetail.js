@@ -8,12 +8,20 @@ export default {
 			this.ui.viewMode = false;
 			this.onClickNew();
 			return;
-		} 
+		}
 		this.getByKey();
+	},
+	errorCaptured: function (err) {
+		this.$refs.detail.$refs.message.show(err.message);
+
+		return false;
 	},
 	methods: {
 		messagaToast(message) {
 			this.$refs.detail.$refs.toast.show(message);
+		},
+		messageBox(message) {
+			this.$refs.detail.$refs.message.show(message);
 		},
 		onClickEdit(event) {
 			this.ui.viewMode = false;
@@ -41,11 +49,11 @@ export default {
 			this.ui.viewMode = false;
 			this.$router.go(-1);
 		},
-		onClickSave(evt) {
+		async onClickSave(evt) {
 			if (this.ui.addMode) {
-				this.onCreate(evt);
+				await this.onCreate(evt);
 			} else {
-				this.onUpdate(evt);
+				await this.onUpdate(evt);
 			}
 		},
 		async onCreate(evt) {

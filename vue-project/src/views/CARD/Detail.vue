@@ -103,19 +103,6 @@
 	</Detail>
 </template>
 <script setup>
-import SuperInput from '../../framework/control/SuperInput.vue'
-import Label from '../../framework/control/Label.vue'
-import SuperButton from '../../framework/control/SuperButton.vue'
-import SuperCheck from '../../framework/control/SuperCheck.vue'
-import SuperRadio from '../../framework/control/SuperRadio.vue'
-import SuperSelect from '../../framework/control/SuperSelect.vue'
-import Tab from '../../framework/control/Tab.vue'
-import TabContent from '../../framework/control/TabContent.vue'
-import Detail from '../../framework/floorplan/Detail.vue'
-import GridContainer from '../../framework/layout/GridContainer.vue'
-import GridLayout from '../../framework/layout/GridLayout.vue'
-import FormContainer from '../../framework/layout/FormContainer.vue'
-import FormElement from '../../framework/layout/FormElement.vue'
 import openChooseFromList from '../../choose/ChooseFromList'
 import { markRaw, defineAsyncComponent } from 'vue'
 import BaseDetail from '../../framework/floorplan/BaseDetail'

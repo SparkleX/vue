@@ -41,6 +41,7 @@ class Feign {
 			return response;
 		} catch (e) {
 			console.error(e);
+			throw new Error(e.responseJSON.error);
 		}
 	};
 

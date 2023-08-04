@@ -1,12 +1,16 @@
 <template>
-	<div v-if="this.visible" class="mask">
-	</div>
-	<div class="background">
-		<div class="title">{{ title }}</div>
-		<slot></slot>
-		<div class="foot">
-			<SuperButton value="OK" @press="onClickOk" type="emphasis"></SuperButton>
-			<SuperButton value="Cancel" @press="onClickCancel"></SuperButton>
+	<div v-show="this.visible">
+		<div class="mask">
+		</div>
+		<div class="background">
+			<div class="title">{{ title }}</div>
+			<slot></slot>
+			
+			<div class="foot">
+				<slot name="buttons"></slot>
+				<!--<SuperButton value="OK" @press="onClickOk" type="emphasis"></SuperButton>
+				<SuperButton value="Cancel" @press="onClickCancel"></SuperButton>-->
+			</div>
 		</div>
 	</div>
 </template>
@@ -39,6 +43,7 @@
 	padding: 0.75rem;
 	border-bottom: 1px solid rgb(0, 112, 242)
 }
+
 .foot {
 	border-top: 1px solid rgb(0, 112, 242);
 	padding: 0.5rem;
@@ -46,26 +51,19 @@
 }
 </style>
 <script setup>
-import Button from '../control/SuperButton.vue'
 </script>
-
 <script>
 export default {
 	props: {
 		title: { type: String, default: 'title' },
 		visible: { type: Boolean, default: true },
 	},
-	emits: ['onPressOk','onPressCancel'],
-	data() {
-		return {
-
-		};
-	},
+	emits: ['onPressOk', 'onPressCancel'],
 	methods: {
-		onClickOk(event) {
+		onClickOk: function(event) {
 			this.$emit("onPressOk", event);
 		},
-		onClickCancel(event) {
+		onClickCancel: function(event) {
 			this.$emit("onPressCancel", event);
 		}
 	}

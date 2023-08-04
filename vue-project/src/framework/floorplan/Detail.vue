@@ -7,7 +7,8 @@
 	<div v-if="showFooter==true" class="footerbar">
 		<slot name="footer"></slot>
 	</div>
-	<MessageToast ref="toast" text="hello"/>
+	<MessageBox ref="message"></MessageBox>
+	<MessageToast ref="toast"/>
 </template>
 <style scoped>
 .title {
@@ -40,17 +41,14 @@
 	padding-right: 0.5rem;
 }
 </style>
-<script setup>
-import MessageToast from '../../framework/dialog/MessageToast.vue'
 
-</script>
 <script>
 export default {
-	props: ['title', 'table', 'showFooter','showMessage'],
+
+	props: ['title', 'table', 'showFooter'],
 	data: function () {
 		return {
 			chooseFromList: null,
-			table: "CARD",
 			ui: {
 				tab: "1",
 				addMode: false,

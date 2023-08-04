@@ -71,7 +71,7 @@ td {
 
 import oBoAll from '../../api/BoAll'
 import oMetadataApi from '../../api/Metadata'
-import Button from '../control/SuperButton.vue'
+import SuperButton from '../control/SuperButton.vue'
 import Dialog from '../dialog/Dialog.vue'
 </script>
 

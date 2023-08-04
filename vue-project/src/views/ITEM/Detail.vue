@@ -1,5 +1,5 @@
 <template>
-	<Detail title="Item Master Data" :showFooter="!ui.viewMode">
+	<Detail title="Item Master Data" :showFooter="!ui.viewMode" ref="detail">
 		<component :is="chooseFromList" />
 		<template #toolsbar>
 			<SuperButton value="New" :visible="ui.viewMode" @press="onClickNew" type="emphasis"></SuperButton>
@@ -33,19 +33,6 @@
 	</Detail>
 </template>
 <script setup>
-import SuperInput from '../../framework/control/SuperInput.vue'
-import Label from '../../framework/control/Label.vue'
-import SuperButton from '../../framework/control/SuperButton.vue'
-import SuperCheck from '../../framework/control/SuperCheck.vue'
-import SuperRadio from '../../framework/control/SuperRadio.vue'
-import SuperSelect from '../../framework/control/SuperSelect.vue'
-import Tab from '../../framework/control/Tab.vue'
-import TabContent from '../../framework/control/TabContent.vue'
-import Detail from '../../framework/floorplan/Detail.vue'
-import GridContainer from '../../framework/layout/GridContainer.vue'
-import GridLayout from '../../framework/layout/GridLayout.vue'
-import FormContainer from '../../framework/layout/FormContainer.vue'
-import FormElement from '../../framework/layout/FormElement.vue'
 import BaseDetail from '../../framework/floorplan/BaseDetail'
 </script>
 <script>

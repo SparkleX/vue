@@ -98,11 +98,8 @@
 }
 </style>
 <script setup>
-import SuperInput from '../control/SuperInput.vue'
-
 import oBoAll from '../../api/BoAll'
 import oMetadataApi from '../../api/Metadata'
-import SuperButton from '../../framework/control/SuperButton.vue'
 </script>
 
 <script>

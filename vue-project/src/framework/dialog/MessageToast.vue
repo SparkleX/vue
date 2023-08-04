@@ -19,8 +19,6 @@
 	text-align: center;
 }
 </style>
-<script setup>
-</script>
 
 <script>
 export default {
