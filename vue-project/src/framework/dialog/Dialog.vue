@@ -5,8 +5,8 @@
 		<div class="title">{{ title }}</div>
 		<slot></slot>
 		<div class="foot">
-			<Button value="OK" @onClick="onClickOk" type="emphasis"></Button>
-			<Button value="Cancel" @onClick="onClickCancel"></Button>
+			<SuperButton value="OK" @onClick="onClickOk" type="emphasis"></SuperButton>
+			<SuperButton value="Cancel" @onClick="onClickCancel"></SuperButton>
 		</div>
 	</div>
 </template>
@@ -46,7 +46,7 @@
 }
 </style>
 <script setup>
-import Button from '../control/Button.vue'
+import Button from '../control/SuperButton.vue'
 </script>
 
 <script>

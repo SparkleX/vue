@@ -4,7 +4,7 @@
 		<div class="header">Choose {{ title }}</div>-->
 		<div class="list" v-if="this.metadata">
 			<div class="table_bar">
-				<Button value="New" @onClick="onClickNew" type="emphasis"></Button>
+				<SuperButton value="New" @onClick="onClickNew" type="emphasis"></SuperButton>
 			</div>
 			<table>
 				<tr class="table_row" >
@@ -71,7 +71,7 @@ td {
 
 import oBoAll from '../../api/BoAll'
 import oMetadataApi from '../../api/Metadata'
-import Button from '../control/Button.vue'
+import Button from '../control/SuperButton.vue'
 import Dialog from '../dialog/Dialog.vue'
 </script>
 

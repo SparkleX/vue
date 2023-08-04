@@ -1,4 +1,6 @@
 <template>
+	{{ label }}
+	<slot name="toolsbar"></slot>
 	<table class="table">
 		<thead>
 			<tr>
@@ -42,6 +44,7 @@ export default {
 		value: { type: Array },
 		columns: { type: Array },
 		columnHeader: { type: Array },
+		label: { type:String }
 	}
 }
 </script>

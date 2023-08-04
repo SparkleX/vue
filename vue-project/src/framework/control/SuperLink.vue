@@ -2,7 +2,7 @@
 	<div class="control">
 		<input v-if="editable == true" class="super_link" type="text" :value="value" @input="onChange" />
 		<div v-if="editable == true" class="btn" @click="onClickButton">&#xe1f3</div>
-		<div v-if="editable == false">{{ value }}</div>
+		<div v-if="editable == false" class="readonly">{{ value }}</div>
 
 		
 	</div>
@@ -11,6 +11,10 @@
 </template>
   
 <style scoped>
+.readonly {
+	height: 2rem;
+	font-size: 1rem;
+}
 .control {
 	border: 1px solid black;
 	outline: none;
@@ -22,6 +26,7 @@
 .super_link {
 	border: 0px;
 	height: 2rem;
+	font-size: 1rem;
 	width: calc(100% - 2.35rem);
 }
 

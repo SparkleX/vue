@@ -2,13 +2,13 @@
 	<Detail title="Sales Order" :showFooter="!ui.viewMode">
 		<component :is="chooseFromList" />
 		<template #toolsbar>
-			<Button value="New" :visible="ui.viewMode" @onClick="onClickNew" type="emphasis"></Button>
-			<Button value="Edit" :visible="ui.viewMode" @onClick="onClickEdit" type="emphasis"></Button>
+			<SuperButton value="New" :visible="ui.viewMode" @onClick="onClickNew" type="emphasis"></SuperButton>
+			<SuperButton value="Edit" :visible="ui.viewMode" @onClick="onClickEdit" type="emphasis"></SuperButton>
 		</template>
 
 		<template #footer>
-			<Button value="Save" @onClick="onClickSave" type="emphasis"></Button>
-			<Button value="Cancel" @onClick="onClickCancel"></Button>
+			<SuperButton value="Save" @onClick="onClickSave" type="emphasis"></SuperButton>
+			<SuperButton value="Cancel" @onClick="onClickCancel"></SuperButton>
 		</template>
 		<Tab v-model:value="ui.tab">
 			<TabContent id="General" :value="ui.tab" activeValue="1" title="General">
@@ -18,13 +18,21 @@
 							<FormElement label="Business Partner">
 								<SuperLink v-model:value="data.CardId" :editable="!ui.viewMode" linkTo="CARD"></SuperLink>
 							</FormElement>
-							<FormElement label="Items">
-								<SuperLink v-model:value="data.CardId" :editable="!ui.viewMode" linkTo="ITEM"></SuperLink>
-							</FormElement>
 						</FormContainer>
 					</GridLayout>
+					<GridLayout>
+						<FormContainer>
+							<FormElement label="Document Number">
+								<SuperInput v-model:value="data.DocNum" :editable="!ui.viewMode"/>
+							</FormElement>
+						</FormContainer>
+					</GridLayout>					
 				</GridContainer>
-				<SuperTable v-model:value="data.DOC1" :columnHeader="['Node Id','#','Item','Qty','Price','Total']" :columns="['NodeId','LineNum','ItemId','Qty','Price','LineTotal']">
+				<SuperTable label="Details" v-model:value="data.DOC1" :columnHeader="['Node Id','#','Item','Qty','Price','Total']" :columns="['NodeId','LineNum','ItemId','Qty','Price','LineTotal']">
+					<template #toolsbar>
+						<SuperButton icon="add"/>
+						<SuperButton icon="delete"/>
+					</template>
 					<template #NodeId="{row}">
 						<SuperInput v-model:value="row.NodeId"></SuperInput>
 					</template>
@@ -60,10 +68,10 @@
 import SuperLink from '../../framework/control/SuperLink.vue'
 import SuperInput from '../../framework/control/SuperInput.vue'
 import Label from '../../framework/control/Label.vue'
-import Button from '../../framework/control/Button.vue'
-import Check from '../../framework/control/Check.vue'
-import Radio from '../../framework/control/Radio.vue'
-import Select from '../../framework/control/Select.vue'
+import SuperButton from '../../framework/control/SuperButton.vue'
+import SuperCheck from '../../framework/control/SuperCheck.vue'
+import SuperRadio from '../../framework/control/SuperRadio.vue'
+import SuperSelect from '../../framework/control/SuperSelect.vue'
 import Tab from '../../framework/control/Tab.vue'
 import TabContent from '../../framework/control/TabContent.vue'
 import Detail from '../../framework/floorplan/Detail.vue'

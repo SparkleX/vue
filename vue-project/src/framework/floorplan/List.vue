@@ -4,11 +4,11 @@
 		<div v-for="item in this.metadata.order">
 			{{ this.metadata.columns[item].name }}:<br> <input />
 		</div>
-		<div>Search:<br><Button value="Go"></button></div>
+		<div>Search:<br><SuperButton value="Go"></SuperButton></div>
 	</div>
 	<div class="list" v-if="this.metadata">
 		<div class="table_bar">
-			<Button value="New" @onClick="onClickNew" type="emphasis"></Button>
+			<SuperButton value="New" @onClick="onClickNew" type="emphasis"></SuperButton>
 		</div>
 		<table>
 			<tr>
@@ -22,7 +22,7 @@
 				<td v-for="item in this.metadata.order">
 					{{ d[item] }}
 				</td>
-				<td> <Button icon="navigation-right-arrow" @onClick="onClickGoDetail($event, d.NodeId)"></button></td>
+				<td> <SuperButton icon="navigation-right-arrow" @onClick="onClickGoDetail($event, d.NodeId)"></SuperButton></td>
 			</tr>
 		</table>
 	</div>
@@ -70,7 +70,7 @@ td {
 
 import oBoAll from '../../api/BoAll'
 import oMetadataApi from '../../api/Metadata'
-import Button from '../../framework/control/Button.vue'
+import SuperButton from '../../framework/control/SuperButton.vue'
 </script>
 
 <script>

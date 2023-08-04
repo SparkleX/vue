@@ -37,7 +37,7 @@
 }
 </style>
 <script setup>
-import Button from '../../framework/control/Button.vue'
+import Button from '../../framework/control/SuperButton.vue'
 </script>
 <script>
 export default {

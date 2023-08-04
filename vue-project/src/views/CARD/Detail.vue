@@ -2,17 +2,17 @@
 	<Detail title="Business Partner" :showFooter="!ui.viewMode">
 		<component :is="chooseFromList" />
 		<template #toolsbar>
-			<Button value="New" :visible="ui.viewMode" @onClick="onClickNew" type="emphasis"></Button>
-			<Button value="Edit" :visible="ui.viewMode" @onClick="onClickEdit" type="emphasis"></Button>
-			<Button value="Duplicate" :visible="ui.viewMode" @onClick="onClickEdit"></Button>
-			<Button value="Delete" :visible="ui.viewMode" @onClick="onClickDelete"></Button>
-			<Button value="Open BP" :visible="ui.viewMode" @onClick="onClickChooseBP"></Button>
-			<Button value="Open Item" :visible="ui.viewMode" @onClick="onClickChooseItem"></Button>
+			<SuperButton value="New" :visible="ui.viewMode" @onClick="onClickNew" type="emphasis"></SuperButton>
+			<SuperButton value="Edit" :visible="ui.viewMode" @onClick="onClickEdit" type="emphasis"></SuperButton>
+			<SuperButton value="Duplicate" :visible="ui.viewMode" @onClick="onClickEdit"></SuperButton>
+			<SuperButton value="Delete" :visible="ui.viewMode" @onClick="onClickDelete"></SuperButton>
+			<SuperButton value="Open BP" :visible="ui.viewMode" @onClick="onClickChooseBP"></SuperButton>
+			<SuperButton value="Open Item" :visible="ui.viewMode" @onClick="onClickChooseItem"></SuperButton>
 		</template>
 
 		<template #footer>
-			<Button value="Save" @onClick="onClickSave" type="emphasis"></Button>
-			<Button value="Cancel" @onClick="onClickCancel"></Button>
+			<SuperButton value="Save" @onClick="onClickSave" type="emphasis"></SuperButton>
+			<SuperButton value="Cancel" @onClick="onClickCancel"></SuperButton>
 		</template>
 		<Tab v-model:value="ui.tab">
 			<TabContent id="General" :value="ui.tab" activeValue="1" title="General">
@@ -40,17 +40,17 @@
 					<GridLayout>
 						<FormContainer>
 							<FormElement label="Balance">
-								<Check v-model:value="YesNo" valYes="T" valNo="F" label="Hello" :editable="!ui.viewMode"></Check>
+								<SuperCheck v-model:value="YesNo" valYes="T" valNo="F" label="Hello" :editable="!ui.viewMode"></SuperCheck>
 							</FormElement>
 							<FormElement label="">
-								<Check id="aaa" v-model:value="YesNo" valYes="T" valNo="F" label="World" :editable="!ui.viewMode"></Check>
+								<SuperCheck id="aaa" v-model:value="YesNo" valYes="T" valNo="F" label="World" :editable="!ui.viewMode"></SuperCheck>
 							</FormElement>
 						</FormContainer>
 					</GridLayout>
 					<GridLayout>
 						<FormContainer>
 							<FormElement label="Balance">
-								<Button :value="text" @onClick="onClickButton"></Button>
+								<SuperButton :value="text" @onClick="onClickButton"></SuperButton>
 							</FormElement>
 							<FormElement label="">
 								<SuperInput v-model:value="RadioValue"></SuperInput>
@@ -84,10 +84,10 @@
 <script setup>
 import SuperInput from '../../framework/control/SuperInput.vue'
 import Label from '../../framework/control/Label.vue'
-import Button from '../../framework/control/Button.vue'
-import Check from '../../framework/control/Check.vue'
-import Radio from '../../framework/control/Radio.vue'
-import Select from '../../framework/control/Select.vue'
+import Button from '../../framework/control/SuperButton.vue'
+import SuperCheck from '../../framework/control/SuperCheck.vue'
+import SuperRadio from '../../framework/control/SuperRadio.vue'
+import SuperSelect from '../../framework/control/SuperSelect.vue'
 import Tab from '../../framework/control/Tab.vue'
 import TabContent from '../../framework/control/TabContent.vue'
 import Detail from '../../framework/floorplan/Detail.vue'
