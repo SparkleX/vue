@@ -2,13 +2,13 @@
 	<Detail title="Sales Order" :showFooter="!ui.viewMode">
 		<component :is="chooseFromList" />
 		<template #toolsbar>
-			<SuperButton value="New" :visible="ui.viewMode" @onClick="onClickNew" type="emphasis"></SuperButton>
-			<SuperButton value="Edit" :visible="ui.viewMode" @onClick="onClickEdit" type="emphasis"></SuperButton>
+			<SuperButton value="New" :visible="ui.viewMode" @press="onClickNew" type="emphasis"></SuperButton>
+			<SuperButton value="Edit" :visible="ui.viewMode" @press="onClickEdit" type="emphasis"></SuperButton>
 		</template>
 
 		<template #footer>
-			<SuperButton value="Save" @onClick="onClickSave" type="emphasis"></SuperButton>
-			<SuperButton value="Cancel" @onClick="onClickCancel"></SuperButton>
+			<SuperButton value="Save" @press="onClickSave" type="emphasis"></SuperButton>
+			<SuperButton value="Cancel" @press="onClickCancel"></SuperButton>
 		</template>
 		<Tab v-model:value="ui.tab">
 			<TabContent id="General" :value="ui.tab" activeValue="1" title="General">
@@ -30,8 +30,8 @@
 				</GridContainer>
 				<SuperTable label="Details" v-model:value="data.DOC1" :columnHeader="['Node Id','#','Item','Qty','Price','Total']" :columns="['NodeId','LineNum','ItemId','Qty','Price','LineTotal']">
 					<template #toolsbar>
-						<SuperButton icon="add"/>
-						<SuperButton icon="delete"/>
+						<SuperButton icon="add" @press="onPressAddLine"/>
+						<SuperButton icon="delete" @press="onPressDeleteLine"/>
 					</template>
 					<template #NodeId="{row}">
 						<SuperInput v-model:value="row.NodeId"></SuperInput>
@@ -100,12 +100,21 @@ export default {
 			codes: {
 			},
 			data: {
-
+				
 			},			
 		}
 	},
 
 	methods: {
+		onPressAddLine(evt) {
+			if(!this.data.DOC1) {
+				this.data.DOC1=[];
+			}
+			this.data.DOC1.push({});
+		},
+		onPressDeleteLine(evt) {
+
+		},
 		onClickChooseBP(event) {
 			this.chooseFromList = markRaw(openChooseFromList('CARD1'));
 		},

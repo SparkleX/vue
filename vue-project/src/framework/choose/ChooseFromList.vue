@@ -4,7 +4,7 @@
 		<div class="header">Choose {{ title }}</div>-->
 		<div class="list" v-if="this.metadata">
 			<div class="table_bar">
-				<SuperButton value="New" @onClick="onClickNew" type="emphasis"></SuperButton>
+				<SuperButton value="New" @press="onClickNew" type="emphasis"></SuperButton>
 			</div>
 			<table>
 				<tr class="table_row" >

@@ -46,10 +46,10 @@ export default {
 		type: { type: String },
 		visible: { type: Boolean, default: true },
 	},
-	emits: ['onClick'],
+	emits: ['press'],
 	methods: {
 		onClickButton(event) {
-			this.$emit("onClick", event);
+			this.$emit("press", event);
 		}
 	},
 	computed: {

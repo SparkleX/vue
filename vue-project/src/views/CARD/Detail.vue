@@ -2,17 +2,17 @@
 	<Detail title="Business Partner" :showFooter="!ui.viewMode">
 		<component :is="chooseFromList" />
 		<template #toolsbar>
-			<SuperButton value="New" :visible="ui.viewMode" @onClick="onClickNew" type="emphasis"></SuperButton>
-			<SuperButton value="Edit" :visible="ui.viewMode" @onClick="onClickEdit" type="emphasis"></SuperButton>
-			<SuperButton value="Duplicate" :visible="ui.viewMode" @onClick="onClickEdit"></SuperButton>
-			<SuperButton value="Delete" :visible="ui.viewMode" @onClick="onClickDelete"></SuperButton>
-			<SuperButton value="Open BP" :visible="ui.viewMode" @onClick="onClickChooseBP"></SuperButton>
-			<SuperButton value="Open Item" :visible="ui.viewMode" @onClick="onClickChooseItem"></SuperButton>
+			<SuperButton value="New" :visible="ui.viewMode" @press="onClickNew" type="emphasis"></SuperButton>
+			<SuperButton value="Edit" :visible="ui.viewMode" @press="onClickEdit" type="emphasis"></SuperButton>
+			<SuperButton value="Duplicate" :visible="ui.viewMode" @press="onClickEdit"></SuperButton>
+			<SuperButton value="Delete" :visible="ui.viewMode" @press="onClickDelete"></SuperButton>
+			<SuperButton value="Open BP" :visible="ui.viewMode" @press="onClickChooseBP"></SuperButton>
+			<SuperButton value="Open Item" :visible="ui.viewMode" @press="onClickChooseItem"></SuperButton>
 		</template>
 
 		<template #footer>
-			<SuperButton value="Save" @onClick="onClickSave" type="emphasis"></SuperButton>
-			<SuperButton value="Cancel" @onClick="onClickCancel"></SuperButton>
+			<SuperButton value="Save" @press="onClickSave" type="emphasis"></SuperButton>
+			<SuperButton value="Cancel" @press="onClickCancel"></SuperButton>
 		</template>
 		<Tab v-model:value="ui.tab">
 			<TabContent id="General" :value="ui.tab" activeValue="1" title="General">
@@ -50,7 +50,7 @@
 					<GridLayout>
 						<FormContainer>
 							<FormElement label="Balance">
-								<SuperButton :value="text" @onClick="onClickButton"></SuperButton>
+								<SuperButton :value="text" @press="onClickButton"></SuperButton>
 							</FormElement>
 							<FormElement label="">
 								<SuperInput v-model:value="RadioValue"></SuperInput>

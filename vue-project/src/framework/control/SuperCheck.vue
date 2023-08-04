@@ -1,11 +1,14 @@
 <template>
 	<label>
-		<input type="checkbox" :checked="checked_value" @input="onChange" :disabled="editable == false" />
+		<input type="checkbox" :checked="checked_value" @input="onChange" :disabled="editable == false" class="check"/>
 		{{ label }}
 	</label>
 </template>
  
 <style scoped>
+.check{
+	background-color: aqua;
+}
 </style>
 <script>
 export default {
@@ -13,7 +16,7 @@ export default {
 		value: { type: [String, Boolean] },
 		valYes: { type: String, default: 'Y' },
 		valNo: { type: String, default: 'N' },
-		label: { type: String, default: "CheckBox" },
+		label: { type: String, default: "" },
 		editable: { type: Boolean, default: true },
 		enable: { type: Boolean, default: true },
 	},

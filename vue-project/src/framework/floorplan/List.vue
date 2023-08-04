@@ -8,7 +8,7 @@
 	</div>
 	<div class="list" v-if="this.metadata">
 		<div class="table_bar">
-			<SuperButton value="New" @onClick="onClickNew" type="emphasis"></SuperButton>
+			<SuperButton value="New" @press="onClickNew" type="emphasis"></SuperButton>
 		</div>
 		<table>
 			<tr>
@@ -22,7 +22,7 @@
 				<td v-for="item in this.metadata.order">
 					{{ d[item] }}
 				</td>
-				<td> <SuperButton icon="navigation-right-arrow" @onClick="onClickGoDetail($event, d.NodeId)"></SuperButton></td>
+				<td> <SuperButton icon="navigation-right-arrow" @press="onClickGoDetail($event, d.NodeId)"></SuperButton></td>
 			</tr>
 		</table>
 	</div>

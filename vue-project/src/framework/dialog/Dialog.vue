@@ -5,8 +5,8 @@
 		<div class="title">{{ title }}</div>
 		<slot></slot>
 		<div class="foot">
-			<SuperButton value="OK" @onClick="onClickOk" type="emphasis"></SuperButton>
-			<SuperButton value="Cancel" @onClick="onClickCancel"></SuperButton>
+			<SuperButton value="OK" @press="onClickOk" type="emphasis"></SuperButton>
+			<SuperButton value="Cancel" @press="onClickCancel"></SuperButton>
 		</div>
 	</div>
 </template>
