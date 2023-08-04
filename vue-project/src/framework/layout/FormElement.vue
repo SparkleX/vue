@@ -1,14 +1,13 @@
 <template>
 	<div class="form_element">
-	<div class="label">
-		<Label :value="label"></Label>
+		<div class="label">
+			<Label :value="label"></Label>
+		</div>
+		<div class="input">
+			<slot>
+			</slot>
+		</div>
 	</div>
-	<div class="input">
-		<slot>
-
-		</slot>
-	</div>
-</div>
 </template>
 
 

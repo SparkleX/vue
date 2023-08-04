@@ -7,16 +7,16 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th  class="th">#</th>
+					<th class="th">#</th>
 					<th v-for="col in this.columnHeader" class="th">{{ col }}</th>
 				</tr>
 			</thead>
 			<tbody>
 
-					
+
 				<tr v-for="row in this.value">
-					<td  class="td">
-						<SuperCheck/>
+					<td class="td">
+						<SuperCheck />
 					</td>
 					<!--<button v-for="item in this.$slots.default()">
 				

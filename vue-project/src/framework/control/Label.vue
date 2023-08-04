@@ -5,7 +5,7 @@
 <style scoped>
 .super_label {
   height: 2rem;
-  white-space:nowrap;
+ /* white-space:nowrap;*/
 }
 </style>
 <script>

@@ -4,10 +4,7 @@
 		<template #toolsbar>
 			<SuperButton value="New" :visible="ui.viewMode" @press="onClickNew" type="emphasis"></SuperButton>
 			<SuperButton value="Edit" :visible="ui.viewMode" @press="onClickEdit" type="emphasis"></SuperButton>
-			<SuperButton value="Duplicate" :visible="ui.viewMode" @press="onClickEdit"></SuperButton>
 			<SuperButton value="Delete" :visible="ui.viewMode" @press="onClickDelete"></SuperButton>
-			<SuperButton value="Open BP" :visible="ui.viewMode" @press="onClickChooseBP"></SuperButton>
-			<SuperButton value="Open Item" :visible="ui.viewMode" @press="onClickChooseItem"></SuperButton>
 		</template>
 
 		<template #footer>
@@ -20,7 +17,7 @@
 					<GridLayout>
 						<FormContainer>
 							<FormElement label="BP Type">
-								<SuperSelect v-model:value="data.CardType" :codes="codes.BPType" :editable="!ui.viewMode"></SuperSelect>
+								<SuperSelect v-model:value="data.CardType" :codes="codes.BPType" :editable="!ui.viewMode"/>
 							</FormElement>
 							<FormElement label="BP Code">
 								<SuperInput v-model:value="data.CardCode" :editable="!ui.viewMode"></SuperInput>
@@ -33,11 +30,14 @@
 					<GridLayout>
 						<FormContainer>
 							<FormElement label="Balance">
-								<SuperInput v-model:value="YesNo"></SuperInput>
+								<SuperInput v-model:value="data.Balance"></SuperInput>
+							</FormElement>
+							<FormElement label="Active">
+								<SuperCheck v-model:value="data.Active" valYes="Y" valNo="N" />
 							</FormElement>
 						</FormContainer>
 					</GridLayout>
-					<GridLayout>
+					<!--<GridLayout>
 						<FormContainer>
 							<FormElement label="Balance">
 								<SuperCheck v-model:value="YesNo" valYes="T" valNo="F" label="Hello" :editable="!ui.viewMode"></SuperCheck>
@@ -67,16 +67,37 @@
 								<SuperSelect v-model:value="SelectValue" :codes="codes.BPType" :editable="!ui.viewMode"></SuperSelect>
 							</FormElement>
 						</FormContainer>
+					</GridLayout>-->
+				</GridContainer>
+			</TabContent>
+			<TabContent :value="ui.tab" activeValue="2" title="Contacts">
+				<GridContainer>
+					<GridLayout>
+						<FormContainer>
+							<FormElement label="Contact Person">
+								<SuperInput value="abc Rd." :editable="!ui.viewMode"></SuperInput>
+							</FormElement>
+						</FormContainer>
 					</GridLayout>
 				</GridContainer>
 			</TabContent>
-			<TabContent id="Contacts" :value="ui.tab" activeValue="2" title="Contacts">
-				<h3>Paris</h3>
-				<p>Paris is the capital of France.</p>
-			</TabContent>
-			<TabContent id="Address" :value="ui.tab" activeValue="3" title="Address">
-				<h3>Tokyo</h3>
-				<p>Tokyo is the capital of Japan.</p>
+			<TabContent :value="ui.tab" activeValue="3" title="Address">
+				<GridContainer>
+					<GridLayout>
+						<FormContainer>
+							<FormElement label="Ship To">
+								<SuperInput value="abc Rd." :editable="!ui.viewMode"></SuperInput>
+							</FormElement>
+						</FormContainer>
+					</GridLayout>
+					<GridLayout>
+						<FormContainer>
+							<FormElement label="Bill To">
+								<SuperInput value="abc Rd." :editable="!ui.viewMode"></SuperInput>
+							</FormElement>
+						</FormContainer>
+					</GridLayout>
+				</GridContainer>
 			</TabContent>
 		</Tab>
 	</Detail>
@@ -96,7 +117,7 @@ import GridLayout from '../../framework/layout/GridLayout.vue'
 import FormContainer from '../../framework/layout/FormContainer.vue'
 import FormElement from '../../framework/layout/FormElement.vue'
 import openChooseFromList from '../../choose/ChooseFromList'
-import { markRaw,defineAsyncComponent } from 'vue'
+import { markRaw, defineAsyncComponent } from 'vue'
 import BaseDetail from '../../framework/floorplan/BaseDetail'
 </script>
 <script>
@@ -130,7 +151,7 @@ export default {
 			YesNo: true,
 			RadioValue: "B",
 			SelectValue: "1",
-			
+
 		}
 	},
 

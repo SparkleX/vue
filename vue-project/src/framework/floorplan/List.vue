@@ -16,14 +16,16 @@
 				<th v-for="item in this.metadata.order" class="th">
 					{{ this.metadata.columns[item].name }}
 				</th>
-				<th class="th">
+				<th class="th_button">
 				</th>
 			</tr>
 			<tr v-for="d in this.data" class="tr">
 				<td v-for="item in this.metadata.order" class="td">
 					{{ d[item] }}
 				</td>
-				<td class="td"> <SuperButton icon="navigation-right-arrow" @press="onClickGoDetail($event, d.NodeId)"></SuperButton></td>
+				<td class="td_button"> 
+					<SuperButton icon="navigation-right-arrow" @press="onClickGoDetail($event, d.NodeId)"></SuperButton>
+				</td>
 			</tr>
 		</table>
 	</div>
@@ -34,37 +36,45 @@
 	padding: 0.5rem;
 }
 .header {
+	font-size:x-large;
+	font-weight: bold;
 	padding: 1rem;
-	background-color: burlywood;
+	background-color: white;
+	border-bottom: 1px solid rgb(0, 112, 242);
 }
 
 .list {
 	padding: 1rem;
 }
-/*
-table {
-	width: 100%;
-	border-collapse: collapse;
-	border: 2px solid;
-}
-
-th,
-td {
-	border: 1px solid;
-}*/
 
 .th {
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
 	border: 1px solid lightgray;
 	border-collapse: collapse;
 	line-height: 2rem;
+	text-align:start;
 }
+.th_button {
+	border: 1px solid lightgray;
+	border-collapse: collapse;
+	line-height: 2rem;
+	text-align:start;
 
+}
 .td {
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
 	border: 1px solid lightgray;
 	border-collapse: collapse;
 	line-height: 2rem;
 }
-
+.td_button {
+	border: 1px solid lightgray;
+	border-collapse: collapse;
+	line-height: 2rem;
+	width: 0px;
+}
 .table {
 	width: 100%;
 	border-collapse: collapse;
@@ -82,8 +92,9 @@ td {
 .grid-container {
 	display: grid;
 	grid-template-columns: auto auto auto auto auto;
-	background-color: beige;
+	background-color: white;
 	padding: 1rem;
+	border-bottom: 1px solid rgb(0, 112, 242);
 }
 </style>
 <script setup>

@@ -2,12 +2,9 @@
 	<div class="control">
 		<input v-if="editable == true" class="super_link" type="text" :value="value" @input="onChange" />
 		<div v-if="editable == true" class="btn" @click="onClickButton">&#xe1f3</div>
-		<div v-if="editable == false" class="readonly">{{ value }}</div>
-
-		
+		<a v-if="editable == false" href="http://"  class="readonly">{{ value }}</a>
 	</div>
-		<component :is="chooseFromList" @onChoose="onPressChoose" @onCancel="onChooseCancel" :table="linkTo" :visible="chooseFromListVisible"/>
-
+	<component :is="chooseFromList" @onChoose="onPressChoose" @onCancel="onChooseCancel" :table="linkTo" :visible="chooseFromListVisible"/>
 </template>
   
 <style scoped>
@@ -16,7 +13,7 @@
 	font-size: 1rem;
 }
 .control {
-	border: 1px solid black;
+	border: 1px solid white;
 	outline: none;
 }
 .control:focus-within{

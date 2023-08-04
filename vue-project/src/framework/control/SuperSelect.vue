@@ -3,7 +3,7 @@
 		<select v-if="editable == true" :value="value" @input="onChange" class="super_select" :disabled="enable == false">
 			<option v-for="code in codes" :value="code.value">{{ code.desc }}</option>
 		</select>
-		<div v-if="editable == false">{{ desc }}</div>
+		<div v-if="editable==false" class="readonly">{{ desc }}</div>
 	</div>
 </template>
  
@@ -12,6 +12,8 @@
 	display:inline-block;
 	width: 100%;
 	height: 2rem;
+}
+.readonly {
 }
 .super_select {
 	height: 2rem;
@@ -46,7 +48,7 @@ export default {
 					return v.desc;
 				}
 			}
-			return "";
+			return "-";
 		},
 	}
 }

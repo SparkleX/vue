@@ -12,7 +12,7 @@
 /* Style the tab */
 .tab {
 	overflow: hidden;
-	border: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
 	background-color: #f1f1f1;
 }
 

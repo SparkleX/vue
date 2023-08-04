@@ -37,7 +37,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 .menu {
 	grid-area: menu;
-	background-color: #EEEEEE;
+	background-color: rgb(244,244,244);
 	height: calc(100vh - 3rem);
 	color: aliceblue;
 	font-size: 1rem;

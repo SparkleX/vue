@@ -15,7 +15,10 @@
 }
 .header {
 	padding: 1rem;
-	background-color: burlywood;
+	font-size:x-large;
+	font-weight: bold;
+	background-color: white;
+	border-bottom: 1px solid rgb(0, 112, 242);
 }
 .toolsbar {
 	width: 50%;
