@@ -1,11 +1,8 @@
 <template>
-	<Dialog v-if="this.visible" title="Choose" @onPressOk="onClickChoose" @onPressCancel="onClickCancel">
+	<Dialog v-if="this.visible" :title="metadata.title" @onPressOk="onClickChoose" @onPressCancel="onClickCancel">
 <!--	<div v-if="this.visible" class="background">
 		<div class="header">Choose {{ title }}</div>-->
 		<div class="list" v-if="this.metadata">
-			<div class="table_bar">
-				<SuperButton value="New" @press="onClickNew" type="emphasis"></SuperButton>
-			</div>
 			<table>
 				<tr class="table_row" >
 					<th v-for="item in this.metadata.order" class="table_cell">
@@ -18,9 +15,13 @@
 					</td>
 				</tr>
 			</table>
-
 		</div>
 <!--	</div>-->
+		<template #buttons>
+			<SuperButton value="Choose" @press="onClickChoose" type="emphasis"></SuperButton>
+			<SuperButton value="Cancel" @press="onClickCancel"></SuperButton>
+			<SuperButton value="New" @press="onClickNew"></SuperButton>
+		</template>
 </Dialog>
 </template>
  
@@ -81,7 +82,9 @@ export default {
 	emits: ['onChoose','onCancel'],
 	data() {
 		return {
-			metadata: null,
+			metadata: {
+				title:''
+			},
 			loading: true,
 			data: []
 		};

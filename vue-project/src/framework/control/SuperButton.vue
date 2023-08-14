@@ -26,8 +26,8 @@
 	margin-right: 0.25rem;
 	min-width: 2rem;
 	background-color: transparent;
-	color:  rgb(0, 112, 242);
-	border: 1px solid rgb(0, 112, 242);
+	color:  var(--color-blue);
+	border: 1px solid var(--color-blue);
 	font-family: 'IconFont', Fallback, sans-serif;
 }
 

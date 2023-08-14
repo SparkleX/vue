@@ -35,30 +35,30 @@
 						<SuperButton icon="delete" @press="onPressDeleteLine"/>
 					</template>
 					<template #NodeId="{row}">
-						<SuperInput v-model:value="row.NodeId"></SuperInput>
+						<SuperInput v-model:value="row.NodeId" :editable="false"></SuperInput>
 					</template>
 					<template #LineNum="props" >
-						<SuperInput v-model:value="props.row.LineNum"></SuperInput>
+						<SuperInput v-model:value="props.row.LineNum" :editable="false"></SuperInput>
 					</template>
 					<template #ItemId="{row}" >
-						<SuperLink v-model:value="row.ItemId" linkTo="ITEM"/>
+						<SuperLink v-model:value="row.ItemId" :editable="!ui.viewMode" linkTo="ITEM"/>
 					</template>		
 					<template #Qty="{row}" >
-						<SuperInput v-model:value="row.Qty"></SuperInput>
+						<SuperInput v-model:value="row.Qty" :editable="!ui.viewMode"></SuperInput>
 					</template>	
 					<template #Price="{row}" >
-						<SuperInput v-model:value="row.Price"></SuperInput>
+						<SuperInput v-model:value="row.Price" :editable="!ui.viewMode"></SuperInput>
 					</template>	
 					<template #LineTotal="{row}" >
-						<SuperInput v-model:value="row.LineTotal"></SuperInput>
+						<SuperInput v-model:value="row.LineTotal" :editable="!ui.viewMode"></SuperInput>
 					</template>																			
 				</SuperTable>
 			</TabContent>
-			<TabContent id="Contacts" :value="ui.tab" activeValue="2" title="Contacts">
+			<TabContent :value="ui.tab" activeValue="2" title="Logitics">
 				<h3>Paris</h3>
 				<p>Paris is the capital of France.</p>
 			</TabContent>
-			<TabContent id="Address" :value="ui.tab" activeValue="3" title="Address">
+			<TabContent :value="ui.tab" activeValue="3" title="Accounting">
 				<h3>Tokyo</h3>
 				<p>Tokyo is the capital of Japan.</p>
 			</TabContent>

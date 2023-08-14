@@ -8,8 +8,6 @@
 			
 			<div class="foot">
 				<slot name="buttons"></slot>
-				<!--<SuperButton value="OK" @press="onClickOk" type="emphasis"></SuperButton>
-				<SuperButton value="Cancel" @press="onClickCancel"></SuperButton>-->
 			</div>
 		</div>
 	</div>
@@ -41,11 +39,11 @@
 
 .title {
 	padding: 0.75rem;
-	border-bottom: 1px solid rgb(0, 112, 242)
+	border-bottom: 1px solid var(--color-blue)
 }
 
 .foot {
-	border-top: 1px solid rgb(0, 112, 242);
+	border-top: 1px solid var(--color-blue);
 	padding: 0.5rem;
 	text-align: end;
 }

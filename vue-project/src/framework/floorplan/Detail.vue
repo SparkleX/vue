@@ -20,7 +20,7 @@
 	font-size:x-large;
 	font-weight: bold;
 	background-color: white;
-	border-bottom: 1px solid rgb(0, 112, 242);
+	border-bottom: 1px solid var(--color-blue);
 }
 .toolsbar {
 	width: 50%;

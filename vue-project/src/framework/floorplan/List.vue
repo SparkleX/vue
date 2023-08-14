@@ -40,7 +40,7 @@
 	font-weight: bold;
 	padding: 1rem;
 	background-color: white;
-	border-bottom: 1px solid rgb(0, 112, 242);
+	border-bottom: 1px solid var(--color-blue);
 }
 
 .list {
@@ -94,7 +94,7 @@
 	grid-template-columns: auto auto auto auto auto;
 	background-color: white;
 	padding: 1rem;
-	border-bottom: 1px solid rgb(0, 112, 242);
+	border-bottom: 1px solid var(--color-blue);
 }
 </style>
 <script setup>

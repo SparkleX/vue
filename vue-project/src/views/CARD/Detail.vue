@@ -103,8 +103,6 @@
 	</Detail>
 </template>
 <script setup>
-import openChooseFromList from '../../choose/ChooseFromList'
-import { markRaw, defineAsyncComponent } from 'vue'
 import BaseDetail from '../../framework/floorplan/BaseDetail'
 </script>
 <script>
@@ -138,12 +136,6 @@ export default {
 	methods: {
 		onClickButton(event) {
 			alert(1);
-		},
-		onClickChooseBP(event) {
-			this.chooseFromList = markRaw(openChooseFromList('CARD1'));
-		},
-		onClickChooseItem(event) {
-			this.chooseFromList = markRaw(openChooseFromList('ITEM'));
 		}
 	},
 }

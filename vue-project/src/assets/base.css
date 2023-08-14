@@ -10,8 +10,11 @@ html {
   height: 100%;
 }
 
+:root {
+	--color-blue:rgb(0, 112, 242);
+}
 @font-face {
 	font-family: 'IconFont';
 	src: url('/font/SAP-icons.woff2') format('woff2'),
 		 url('/font/SAP-icons.woff2') format('woff');
-  }
+}

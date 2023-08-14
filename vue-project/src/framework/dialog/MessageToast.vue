@@ -13,7 +13,7 @@
 	width: 20rem;
 	height: 2rem;
 	border-radius: 6px;
-	border: 1px solid rgb(0, 112, 242);
+	border: 1px solid var(--color-blue);
 	padding-top: 0.5rem;
 	padding-right: 0.5rem;
 	text-align: center;

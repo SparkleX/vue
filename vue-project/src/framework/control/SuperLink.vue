@@ -13,18 +13,20 @@
 	font-size: 1rem;
 }
 .control {
-	border: 1px solid white;
+	background-color: rgb(240,240,240);
+	border-bottom: 1px solid black;
 	outline: none;
 }
 .control:focus-within{
 	outline:auto;
-	outline-color: rgb(0, 112, 242)
+	outline-color: var(--color-blue)
 }
 .super_link {
 	border: 0px;
 	height: 2rem;
 	font-size: 1rem;
 	width: calc(100% - 2.35rem);
+	background: transparent;
 }
 
 .super_link:focus{
@@ -34,12 +36,12 @@
 	/*background-color: aqua;*/
 	width:1.9rem;
 	height: 1.8rem;
-	border: 0px solid rgb(0, 112, 242);
+	border: 0px solid var(--color-blue);
 	display: inline-block;
 	vertical-align:middle;
 	text-align: center;
 	line-height: 1.8rem;
-	color: rgb(0, 112, 242);
+	color: var(--color-blue);
 	font-family: 'IconFont', Fallback, sans-serif;
 	cursor: pointer;
 }
@@ -47,7 +49,7 @@
 
 <script setup>
 import { markRaw, defineAsyncComponent } from 'vue'
-import openChooseFromList from '../../choose/ChooseFromList'
+import openChooseFromList from '../choose/ChooseFromList'
 
 </script>
 
